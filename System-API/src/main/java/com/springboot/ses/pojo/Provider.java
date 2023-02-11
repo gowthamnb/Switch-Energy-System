@@ -12,6 +12,13 @@ public class Provider {
     private String rate;
     private String status;
 
+    public Provider(String id, String name, String rate, String status) {
+        this.id = id;
+        this.name = name;
+        this.rate = rate;
+        this.status = status;
+    }
+
     public String getId() {
         return id;
     }
