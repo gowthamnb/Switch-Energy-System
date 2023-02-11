@@ -1,10 +1,8 @@
 package com.springboot.ses.controller;
 
-import com.springboot.ses.pojo.Provider;
 import com.springboot.ses.pojo.User;
-
-import com.springboot.ses.service.SmartMeterService;
 import com.springboot.ses.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +15,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
 
     @PostMapping("/signup")
     public String signUp(@RequestBody User newUser) {
