@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'System-UI';
+
+  status: String = 'false';
+  // rootStatus: String = 'false';
+
+  logIn(newItem: string) {
+    console.log(newItem);
+    this.status = newItem;
+  }
 }

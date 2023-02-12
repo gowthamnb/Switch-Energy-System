@@ -5,17 +5,39 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { SideNavComponent } from './user/side-nav/side-nav.component';
+import { UserModule } from './user/user.module';
+import { LogInComponent } from './log-in/log-in.component';
+import { EnrollSwitchMeterComponent } from './user/enroll-switch-meter/enroll-switch-meter.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { BillsComponent } from './bills/bills.component';
+import { ProviderComponent } from './provider/provider.component';
+import { RateComponent } from './rate/rate.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignUpComponent
+    SignUpComponent,
+    SideNavComponent,
+    LogInComponent,
+    EnrollSwitchMeterComponent,
+    HomePageComponent,
+    BillsComponent,
+    ProviderComponent,
+    RateComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +46,15 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatListModule,
+    MatIconModule,
+    MatMenuModule,
+    MatToolbarModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

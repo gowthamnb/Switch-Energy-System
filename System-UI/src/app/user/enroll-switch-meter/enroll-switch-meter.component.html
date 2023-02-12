@@ -1,0 +1,17 @@
+<app-header></app-header>
+<div class="container">
+    <form class="enroll-switch-meter-form" [formGroup]="switchMeter" (ngSubmit)="enrollSwitchMeter(switchMeter.value)"
+        autocomplete="off">
+        <mat-form-field appearance="fill">
+            <mat-label>Providers</mat-label>
+            <mat-select formControlName="provider_name">
+                <mat-option *ngFor="let provider of providers" [value]="provider.providerName">
+                    {{provider.providerName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="button">
+            <button mat-raised-button color="primary" class="submit" [disabled]="!switchMeter.valid">Enroll</button>
+        </div>
+    </form>
+</div>
