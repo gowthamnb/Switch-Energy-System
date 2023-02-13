@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BillsComponent } from './bills/bills.component';
+import { BillsComponent } from './user/bills/bills.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LogInComponent } from './log-in/log-in.component';
-import { ProviderComponent } from './provider/provider.component';
-import { RateComponent } from './rate/rate.component';
+import { ProviderComponent } from './user/provider/provider.component';
+import { RateComponent } from './user/rate/rate.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { EnrollSwitchMeterComponent } from './user/enroll-switch-meter/enroll-switch-meter.component';
 import { SideNavComponent } from './user/side-nav/side-nav.component';

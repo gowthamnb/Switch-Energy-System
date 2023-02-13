@@ -11,7 +11,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,10 +22,10 @@ import { UserModule } from './user/user.module';
 import { LogInComponent } from './log-in/log-in.component';
 import { EnrollSwitchMeterComponent } from './user/enroll-switch-meter/enroll-switch-meter.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { BillsComponent } from './bills/bills.component';
-import { ProviderComponent } from './provider/provider.component';
-import { RateComponent } from './rate/rate.component';
-import { HeaderComponent } from './header/header.component';
+import { BillsComponent } from './user/bills/bills.component';
+import { ProviderComponent } from './user/provider/provider.component';
+import { RateComponent } from './user/rate/rate.component';
+import { HeaderComponent } from './user/header/header.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { HeaderComponent } from './header/header.component';
     MatIconModule,
     MatMenuModule,
     MatToolbarModule,
+    HttpClientModule, 
     UserModule
   ],
   providers: [],

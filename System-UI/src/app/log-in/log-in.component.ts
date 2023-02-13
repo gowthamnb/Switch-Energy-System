@@ -25,7 +25,7 @@ export class LogInComponent implements OnInit {
 
   logIn(logInData: Object) {
     this.newItemEvent.emit("true");
-    // this.router.navigate(['user']);
+    // this.router.navigate(['home']);
 
     this.router.navigate(['enroll-switch-meter']);
   }

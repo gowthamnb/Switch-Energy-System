@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="signup-form" [formGroup]="signUpForm" (ngSubmit)="userDetails(signUpForm.value)" autocomplete="off">
+    <form class="signup-form" [formGroup]="signUpForm" autocomplete="off">
         <div class="table">
             <table>
                 <p class="input-row-1">
@@ -58,10 +58,11 @@
                 </p>
             </table>
             <div class="button">
-                <button mat-raised-button color="primary" class="submit" [disabled]="!signUpForm.valid">Sign up</button>
+                <button mat-raised-button color="primary" class="submit" (click)="userDetails()"
+                    [disabled]="!signUpForm.valid">Sign up</button>
             </div>
             <div class="login-route">
-                <p >Already have an Account?&nbsp;</p>
+                <p>Already have an Account?&nbsp;</p>
                 <p><a href="login">Login</a></p>
             </div>
         </div>

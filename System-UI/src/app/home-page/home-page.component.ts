@@ -17,7 +17,6 @@ export class HomePageComponent implements OnInit {
   // rootStatus: String = 'false';
 
   logIn(newItem: string) {
-    console.log(newItem);
     this.status = newItem;
   }
 }

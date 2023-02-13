@@ -1,6 +1,7 @@
 <app-header></app-header>
+<app-side-nav></app-side-nav>
 <div class="container">
-    <form class="enroll-switch-meter-form" [formGroup]="switchMeter" (ngSubmit)="enrollSwitchMeter(switchMeter.value)"
+    <form class="enroll-switch-meter-form" [formGroup]="switchMeter" (ngSubmit)="enrollSwitchMeter()"
         autocomplete="off">
         <mat-form-field appearance="fill">
             <mat-label>Providers</mat-label>
