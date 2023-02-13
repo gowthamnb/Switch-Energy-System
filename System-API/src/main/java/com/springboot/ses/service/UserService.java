@@ -28,10 +28,10 @@ public class UserService {
         long newUserContact = (long) newUser.getContactNumber();
         String userId = "";
         if(newUserName.length() > 3) {
-            userId = newUserName.substring(0, 3) + "@" +  String.valueOf(newUserContact).substring(0, 5);
+            userId = newUserName.substring(0, 3) + "@user";
         }
         else {
-            userId = newUserName;
+            userId = newUserName + "@user";
         }
         return userId;
     }

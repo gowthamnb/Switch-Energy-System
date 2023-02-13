@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("user")
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired
@@ -18,6 +19,7 @@ public class UserController {
 
     @PostMapping("/signup")
     public String signUp(@RequestBody User newUser) {
+        System.out.println(newUser);
         return userService.signUp(newUser);
     }
 

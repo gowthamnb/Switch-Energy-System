@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("provider")
+@CrossOrigin("*")
 public class ProviderController {
 
     @Autowired

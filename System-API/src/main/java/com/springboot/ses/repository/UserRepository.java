@@ -18,6 +18,7 @@ public class UserRepository {
 
     public String signUp(User newUser) {
         mongoTemplate.save(newUser);
+
         return "User Created!!";
     }
 
