@@ -6,7 +6,7 @@ import com.springboot.ses.service.ProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.PrimitiveIterator;
+import java.util.List;
 
 @RestController
 @RequestMapping("provider")
@@ -15,12 +15,17 @@ public class ProviderController {
     @Autowired
     private ProviderService providerService;
 
-    @PostMapping("enroll")
+    @PostMapping("/enroll")
     public String enrollProvider(@RequestBody Provider newProvider) {
         return providerService.enrollProvider(newProvider);
     }
 
-    @PutMapping("status/{id}")
+    @GetMapping("/check-rates")
+    public List<Provider> checkRates() {
+        return providerService.checkRates();
+    }
+
+    @PutMapping("update-status/{id}")
     public String updateStatus(@PathVariable String id, @RequestBody Provider updateProvider) {
         return providerService.updateStatus(id, updateProvider);
     }

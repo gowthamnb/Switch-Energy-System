@@ -15,9 +15,10 @@ public class SmartMeterService {
     @Autowired
     private SmartMeterRepository smartMeterRepository;
 
-    public String enroll(Provider provider) {
+    public String enroll(String id, Provider provider) {
         SmartMeter smartMeter = new SmartMeter();
         smartMeter.setId(generateId());
+        smartMeter.setUserId(id);
         smartMeter.setProviderName(provider.getName());
         smartMeter.setStatus("Pending");
         return smartMeterRepository.enroll(smartMeter);
@@ -26,5 +27,18 @@ public class SmartMeterService {
     private String generateId() {
         String smartMeterId = "SMART" + initialId++;
         return smartMeterId;
+    }
+
+    public String approveSmartMeter(String id) {
+        return smartMeterRepository.approveSmartMeter(id);
+    }
+
+    public String rejectSmartMeter(String id) {
+        return smartMeterRepository.rejectSmartMeter(id);
+    }
+
+
+    public String switchSmartMeter(String id, Provider provider) {
+        return smartMeterRepository.switchSmartMeter(id, provider);
     }
 }

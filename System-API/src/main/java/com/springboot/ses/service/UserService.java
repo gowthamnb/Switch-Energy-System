@@ -1,10 +1,13 @@
 package com.springboot.ses.service;
 
+import com.springboot.ses.pojo.SmartMeter;
 import com.springboot.ses.pojo.User;
 import com.springboot.ses.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -31,5 +34,13 @@ public class UserService {
             userId = newUserName;
         }
         return userId;
+    }
+
+    public List<SmartMeter> getSmartMeters(String id) {
+        return userRepository.getSmartMeters(id);
+    }
+
+    public List<SmartMeter> requestedSmartMeters() {
+        return userRepository.requestedSmartMeters();
     }
 }

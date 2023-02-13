@@ -8,6 +8,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class ProviderRepository {
 
@@ -25,8 +27,15 @@ public class ProviderRepository {
         if(updateProvider.getStatus() != null) {
             update.set("status", updateProvider.getStatus());
         }
+        if(updateProvider.getStatus() == "Disabled") {
+
+        }
         mongoTemplate.findAndModify(query, update, Provider.class);
 
         return "Status Updated!!";
+    }
+
+    public List<Provider> checkRates() {
+        return mongoTemplate.findAll(Provider.class);
     }
 }

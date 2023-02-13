@@ -1,13 +1,13 @@
 package com.springboot.ses.controller;
 
+import com.springboot.ses.pojo.SmartMeter;
 import com.springboot.ses.pojo.User;
 import com.springboot.ses.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("user")
@@ -19,6 +19,16 @@ public class UserController {
     @PostMapping("/signup")
     public String signUp(@RequestBody User newUser) {
         return userService.signUp(newUser);
+    }
+
+    @GetMapping("/{id}/display")
+    public List<SmartMeter> getSmartMeters(@PathVariable("id") String id) {
+        return userService.getSmartMeters(id);
+    }
+
+    @GetMapping("/requests")
+    public List<SmartMeter> requestedSmartMeters() {
+        return userService.requestedSmartMeters();
     }
 
 }

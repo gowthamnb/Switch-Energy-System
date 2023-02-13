@@ -5,6 +5,8 @@ import com.springboot.ses.repository.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProviderService {
 
@@ -26,5 +28,9 @@ public class ProviderService {
 
     public String updateStatus(String id, Provider updateProvider) {
         return providerRepository.updateStatus(id, updateProvider);
+    }
+
+    public List<Provider> checkRates() {
+        return providerRepository.checkRates();
     }
 }

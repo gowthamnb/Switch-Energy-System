@@ -12,14 +12,28 @@ public class SmartMeterController {
 
     @Autowired
     private SmartMeterService smartMeterService;
-    @PostMapping("/enroll")
-    public String enrollSmartMeter(@RequestBody Provider provider) {
-        return smartMeterService.enroll(provider);
+    @PostMapping("/{id}/enroll")
+    public String enrollSmartMeter(@PathVariable String id, @RequestBody Provider provider) {
+
+        return smartMeterService.enroll(id, provider);
     }
 
-    @PutMapping("/switch-provider")
-    public String switchSmartMeter (@RequestBody Provider provider) {
+    //approve Smart Meter
+    @PutMapping("/{id}/approve")
+    public String approveSmartMeter(@PathVariable("id") String id) {
+        return smartMeterService.approveSmartMeter(id);
+    }
 
-        return smartMeterService.enroll(provider);
+    //Reject Smart Meter
+    @PutMapping("/{id}/reject")
+    public String rejectSmartMeter(@PathVariable("id") String id) {
+        return smartMeterService.rejectSmartMeter(id);
+    }
+
+
+    @PutMapping("/{id}/switch-provider")
+    public String switchSmartMeter(@PathVariable("id") String id, @RequestBody Provider provider) {
+
+        return smartMeterService.switchSmartMeter(id, provider);
     }
 }
