@@ -16,8 +16,8 @@ export class UserService {
   //   return this.http.post<User>(this.url + '/signup', signUpData);
   // }
 
-  signUp(signUpData: Object): Observable<any>{
-    return this.http.post<any>(this.url + '/signup', signUpData);
+  signUp(signUpData: Object): Observable<Object>{
+    return this.http.post(this.url + '/signup', signUpData);
   }
   
 }

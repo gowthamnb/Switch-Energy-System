@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BillsComponent implements OnInit {
 
+  SmartMeters: Array<any> = [];
+
   constructor() { }
 
   ngOnInit(): void {

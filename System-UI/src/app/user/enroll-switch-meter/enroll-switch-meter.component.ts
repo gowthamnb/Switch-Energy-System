@@ -22,9 +22,9 @@ export class EnrollSwitchMeterComponent implements OnInit {
   }
 
   providers: Provider[] = [
-    {providerName: 'Dr Evils Energy'},
-    {providerName: 'The Blue Eco'},
-    {providerName: 'Power for All'},
+    { providerName: 'Dr Evils Energy' },
+    { providerName: 'The Blue Eco' },
+    { providerName: 'Power for All' },
   ];
 
 
@@ -38,25 +38,28 @@ export class EnrollSwitchMeterComponent implements OnInit {
       title: 'Do you want to Signup?',
       showDenyButton: true,
       showCancelButton: true,
-      confirmButtonText: 'Signup',
-      denyButtonText: `Login`,
+      confirmButtonText: 'Enroll',
+      denyButtonText: `Return`,
     }).then((result) => {
       if (result.isConfirmed) {
-        this.smartMeterService.signUp(this.signUpForm.value).subscribe();
-        Swal.fire('User Signed up', 'You can Login now!!', 'success').then(result => {
-          if (result.value) 
-            this.router.navigate(['login']);
-        });
+        this.smartMeterService.enrollSwitchMeter(this.switchMeter.value).subscribe();
+        Swal.fire('Smart Meter Enrolled', 'Waiting for Confirmation!!', 'success');
+        // .then(result => {
+        //   if (result.value)
+        //     this.router.navigate(['login']);
+        // });
       }
       else if (result.isDenied) {
-        Swal.fire('Details are not saved', 'Return to Login?', 'info');
+        Swal.fire('Details are not saved', 'Return to Home?', 'info');
       }
       else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('Cancelled!', 'Unable to Signup.', 'error').then(result => {
-          if (result.value) {
-            this.router.navigate(['signup']);
-          }
-        });
+        Swal.fire('Cancelled!', 'Unable to Enroll!!', 'error');
+        // .then(result => {
+        //   if (result.value) {
+        //     this.router.navigate(['signup']);
+        //   }
+        // });
       }
+    })
   }
 }

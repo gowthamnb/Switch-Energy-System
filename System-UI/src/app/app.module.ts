@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -55,7 +56,8 @@ import { HeaderComponent } from './user/header/header.component';
     MatIconModule,
     MatMenuModule,
     MatToolbarModule,
-    HttpClientModule, 
+    HttpClientModule,
+    MatTableModule, 
     UserModule
   ],
   providers: [],
