@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 import { UserComponent } from './user.component';
 import { UserNavComponent } from './components/user-nav/user-nav.component';
 import { SmartMeterComponent } from './components/smart-meter/smart-meter.component';
 import { BillComponent } from './components/bill/bill.component';
 import { ProviderComponent } from './components/provider/provider.component';
-import { RateComponent } from './components/rate/rate.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PayComponent } from './components/pay/pay.component';
 import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
@@ -18,13 +24,19 @@ import { UserRoutingModule } from './user-routing.module';
     SmartMeterComponent,
     BillComponent,
     ProviderComponent,
-    RateComponent,
-    HeaderComponent
+    HeaderComponent,
+    PayComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    UserRoutingModule
+    UserRoutingModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatDividerModule,
+    MatListModule
   ]
 })
 export class UserModule { }

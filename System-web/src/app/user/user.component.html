@@ -1,1 +1,13 @@
+<!-- <app-header></app-header>
 <router-outlet></router-outlet>
+<app-user-nav></app-user-nav> -->
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="true">
+        <app-user-nav></app-user-nav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-header></app-header>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
