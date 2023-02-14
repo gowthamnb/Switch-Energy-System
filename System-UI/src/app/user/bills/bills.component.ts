@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SmartMeter } from 'src/app/smartMeter';
+import { UserService } from './../../user.service';
 
 @Component({
   selector: 'app-bills',
@@ -7,11 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BillsComponent implements OnInit {
 
-  SmartMeters: Array<any> = [];
+  SmartMeters: SmartMeter = [];
+  displayElement = true;
+  userId: String ='gow@98765';
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.displayBills(this.userId);
+
   }
+  
+  displayBills(userId: String) {
+    this.userService.displayBills(this.userId).subscribe((response) => {
+      this.SmartMeters = response;
+      console.log(this.SmartMeters)
+    });
+  }
+  
 
 }
+
+
+

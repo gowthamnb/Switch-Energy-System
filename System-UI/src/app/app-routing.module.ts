@@ -8,6 +8,7 @@ import { RateComponent } from './user/rate/rate.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { EnrollSwitchMeterComponent } from './user/enroll-switch-meter/enroll-switch-meter.component';
 import { SideNavComponent } from './user/side-nav/side-nav.component';
+import { AdminSideNavComponent } from './admin/admin-side-nav/admin.side.nav.component';
 
 
 const routes: Routes = [
@@ -20,8 +21,8 @@ const routes: Routes = [
   { path: 'bills', component: BillsComponent },
   { path: 'provider', component: ProviderComponent },
   { path: 'rates', component: RateComponent },
-  { path: 'user', component: SideNavComponent }
-
+  { path: 'user', component: SideNavComponent },
+  { path: 'admin', component: AdminSideNavComponent }
 ];
 
 @NgModule({
