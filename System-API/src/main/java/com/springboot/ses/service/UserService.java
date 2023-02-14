@@ -12,10 +12,10 @@ import java.util.List;
 @Service
 public class UserService {
 
-    public String role = "ROLE_USER";
-
     @Autowired
     private UserRepository userRepository;
+
+    public String role = "ROLE_USER";
 
     public String signUp(User newUser) {
         newUser.setId(generateId(newUser));
@@ -25,13 +25,16 @@ public class UserService {
 
     private String generateId(User newUser) {
         String newUserName = newUser.getName();
-        long newUserContact = (long) newUser.getContactNumber();
+        long toLong = 1L;
+        long newUserContact = (long) newUser.getContactNumber() * toLong;
         String userId = "";
-        if(newUserName.length() > 3) {
-            userId = newUserName.substring(0, 3) + "@user";
+        System.out.println(newUserName.length());
+        System.out.println(String.valueOf(newUserContact).length());
+        if(newUserName.length() > 3 && String.valueOf(newUserContact).length() == 10) {
+            userId = newUserName.substring(0, 3) + "@" + String.valueOf(newUserContact).substring(0,3);
         }
         else {
-            userId = newUserName + "@user";
+            userId = newUserName + "@" + String.valueOf(newUserContact).substring(0,3);
         }
         return userId;
     }

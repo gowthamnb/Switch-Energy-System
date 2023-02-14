@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './types';
-import { smartmeter } from './smartMeter';
+// import { smartmeter } from './smartMeter';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +21,8 @@ export class UserService {
     return this.http.post(this.url + '/signup', signUpData);
   }
 
-  displayBills(userId: String): Observable<smartmeter> {
-    return this.http.get<smartmeter>(this.url + '/' + userId +'/display');
-  }
+  // displayBills(userId: String): Observable<smartmeter> {
+  //   return this.http.get<smartmeter>(this.url + '/' + userId +'/display');
+  // }
   
 }

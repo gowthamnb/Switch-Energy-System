@@ -9,23 +9,23 @@ import { UserService } from './../../user.service';
 })
 export class BillsComponent implements OnInit {
 
-  SmartMeters: SmartMeter = [];
+  // SmartMeters: SmartMeter = [];
   displayElement = true;
   userId: String ='gow@98765';
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.displayBills(this.userId);
+    // this.displayBills(this.userId);
 
   }
   
-  displayBills(userId: String) {
-    this.userService.displayBills(this.userId).subscribe((response) => {
-      this.SmartMeters = response;
-      console.log(this.SmartMeters)
-    });
-  }
+  // displayBills(userId: String) {
+  //   this.userService.displayBills(this.userId).subscribe((response) => {
+  //     this.SmartMeters = response;
+  //     console.log(this.SmartMeters)
+  //   });
+  // }
   
 
 }
