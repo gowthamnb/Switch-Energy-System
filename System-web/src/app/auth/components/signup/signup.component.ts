@@ -3,7 +3,6 @@ import { Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 
 

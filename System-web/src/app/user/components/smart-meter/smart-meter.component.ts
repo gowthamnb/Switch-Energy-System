@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { SmartMeter } from 'src/app/interfaces/smartMeter';
 import { Provider } from 'src/app/interfaces/provider';
 import { SmartMeterService } from 'src/app/services/smart-meter.service';
+import { EnrollSmartMeterDialogBoxComponent } from '../enroll-smart-meter-dialog-box/enroll-smart-meter-dialog-box.component';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class SmartMeterComponent implements OnInit {
   }
 
   enrollSmartMeter(): void {
-    const dialogRef = this.dialog.open(DialogOverview, {
+    const dialogRef = this.dialog.open(EnrollSmartMeterDialogBoxComponent, {
       data: this.newSmartMeter,
     });
 
@@ -43,22 +44,22 @@ export class SmartMeterComponent implements OnInit {
 
 }
 
-@Component({
-  selector: 'enroll-smart-meter-dialogue',
-  templateUrl: 'enroll-smart-meter-dialog.html'
-})
-export class DialogOverview {
-  newSmartMeter: Provider = {
-    id: '',
-    name: '',
-    rate: 0,
-    status: ''
-  };
-  constructor(public dialogRef: MatDialogRef<DialogOverview>, 
-    @Inject(MAT_DIALOG_DATA) public data: Provider,
-  ) {}
+// @Component({
+//   selector: 'enroll-smart-meter-dialogue',
+//   templateUrl: 'enroll-smart-meter-dialog.html'
+// })
+// export class DialogOverview {
+//   newSmartMeter: Provider = {
+//     id: '',
+//     name: '',
+//     rate: 0,
+//     status: ''
+//   };
+//   constructor(public dialogRef: MatDialogRef<DialogOverview>, 
+//     @Inject(MAT_DIALOG_DATA) public data: Provider,
+//   ) {}
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-}
+//   onNoClick(): void {
+//     this.dialogRef.close();
+//   }
+// }

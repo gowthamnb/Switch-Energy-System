@@ -13,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 
 import { UserComponent } from './user.component';
 import { UserNavComponent } from './components/user-nav/user-nav.component';
@@ -21,6 +23,7 @@ import { BillComponent } from './components/bill/bill.component';
 import { ProviderComponent } from './components/provider/provider.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PayComponent } from './components/pay/pay.component';
+import { EnrollSmartMeterDialogBoxComponent } from '../user/components/enroll-smart-meter-dialog-box/enroll-smart-meter-dialog-box.component';
 import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
@@ -31,7 +34,8 @@ import { UserRoutingModule } from './user-routing.module';
     BillComponent,
     ProviderComponent,
     HeaderComponent,
-    PayComponent
+    PayComponent,
+    EnrollSmartMeterDialogBoxComponent,
   ],
   imports: [
     CommonModule,
@@ -48,7 +52,9 @@ import { UserRoutingModule } from './user-routing.module';
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    MatSelectModule 
   ]
 })
 export class UserModule { }
