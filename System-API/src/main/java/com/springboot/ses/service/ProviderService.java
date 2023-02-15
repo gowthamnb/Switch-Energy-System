@@ -22,8 +22,8 @@ public class ProviderService {
     }
 
     private String generateId() {
-        String smartMeterId = "Pro" + initialId++;
-        return smartMeterId;
+        String providerId = "Pro@" + initialId++;
+        return providerId;
     }
 
     public String updateStatus(String id, Provider updateProvider) {

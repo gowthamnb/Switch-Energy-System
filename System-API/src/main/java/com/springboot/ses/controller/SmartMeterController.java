@@ -18,7 +18,6 @@ public class SmartMeterController {
     private SmartMeterService smartMeterService;
     @PostMapping("/{id}/enroll")
     public String enrollSmartMeter(@PathVariable String id, @RequestBody Provider provider) {
-
         return smartMeterService.enroll(id, provider);
     }
 

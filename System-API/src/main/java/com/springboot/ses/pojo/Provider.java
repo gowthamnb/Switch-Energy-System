@@ -9,10 +9,10 @@ public class Provider {
     @Id
     private String id;
     private String name;
-    private String rate;
+    private int rate;
     private String status;
 
-    public Provider(String id, String name, String rate, String status) {
+    public Provider(String id, String name, int rate, String status) {
         this.id = id;
         this.name = name;
         this.rate = rate;
@@ -35,11 +35,11 @@ public class Provider {
         this.name = name;
     }
 
-    public String getRate() {
+    public int getRate() {
         return rate;
     }
 
-    public void setRate(String rate) {
+    public void setRate(int rate) {
         this.rate = rate;
     }
 

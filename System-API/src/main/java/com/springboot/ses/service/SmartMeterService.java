@@ -12,22 +12,21 @@ import java.util.List;
 @Service
 public class SmartMeterService {
 
-    private int initialId = 1;
-
     @Autowired
     private SmartMeterRepository smartMeterRepository;
 
     public String enroll(String id, Provider provider) {
         SmartMeter smartMeter = new SmartMeter();
-        smartMeter.setId(generateId());
+        smartMeter.setId(generateId(id));
         smartMeter.setUserId(id);
         smartMeter.setProviderName(provider.getName());
         smartMeter.setStatus("Pending");
         return smartMeterRepository.enroll(smartMeter);
     }
 
-    private String generateId() {
-        String smartMeterId = "SMART" + initialId++;
+    private String generateId(String id) {
+        String prefix[] = id.split("@");
+        String smartMeterId = prefix[0] + "@smart";
         return smartMeterId;
     }
 
