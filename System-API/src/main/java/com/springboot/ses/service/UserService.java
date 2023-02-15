@@ -28,8 +28,6 @@ public class UserService {
         long toLong = 1L;
         long newUserContact = (long) newUser.getContactNumber() * toLong;
         String userId = "";
-        System.out.println(newUserName.length());
-        System.out.println(String.valueOf(newUserContact).length());
         if(newUserName.length() > 3 && String.valueOf(newUserContact).length() == 10) {
             userId = newUserName.substring(0, 3) + "@" + String.valueOf(newUserContact).substring(0,3);
         }
