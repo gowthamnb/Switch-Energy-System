@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class SmartMeterRepository {
 
@@ -18,6 +20,15 @@ public class SmartMeterRepository {
     public String enroll(SmartMeter smartMeter) {
         mongoTemplate.save(smartMeter);
         return "Smart Meter Requested!!";
+    }
+
+    public List<SmartMeter> getSmartMeters(String id) {
+        return mongoTemplate.find(Query.query(Criteria.where("userId").is(id)), SmartMeter.class);
+
+    }
+
+    public List<SmartMeter> requestedSmartMeters() {
+        return mongoTemplate.find(Query.query(Criteria.where("status").is("Pending")), SmartMeter.class);
     }
 
     public String approveSmartMeter(String id) {

@@ -21,13 +21,4 @@ public class UserRepository {
 
         return "User Created!!";
     }
-
-    public List<SmartMeter> getSmartMeters(String id) {
-        return mongoTemplate.find(Query.query(Criteria.where("userId").is(id)), SmartMeter.class);
-
-    }
-
-    public List<SmartMeter> requestedSmartMeters() {
-        return mongoTemplate.find(Query.query(Criteria.where("status").is("Pending")), SmartMeter.class);
-    }
 }

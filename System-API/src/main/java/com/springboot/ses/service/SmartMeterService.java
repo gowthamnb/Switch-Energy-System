@@ -7,6 +7,8 @@ import com.springboot.ses.repository.SmartMeterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SmartMeterService {
 
@@ -27,6 +29,14 @@ public class SmartMeterService {
     private String generateId() {
         String smartMeterId = "SMART" + initialId++;
         return smartMeterId;
+    }
+
+    public List<SmartMeter> getSmartMeters(String id) {
+        return smartMeterRepository.getSmartMeters(id);
+    }
+
+    public List<SmartMeter> requestedSmartMeters() {
+        return smartMeterRepository.requestedSmartMeters();
     }
 
     public String approveSmartMeter(String id) {

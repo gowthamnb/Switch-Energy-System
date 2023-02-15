@@ -19,18 +19,7 @@ public class UserController {
 
     @PostMapping("/signup")
     public String signUp(@RequestBody User newUser) {
-        System.out.println(newUser);
         return userService.signUp(newUser);
-    }
-
-    @GetMapping("/{id}/display")
-    public List<SmartMeter> getSmartMeters(@PathVariable("id") String id) {
-        return userService.getSmartMeters(id);
-    }
-
-    @GetMapping("/requests")
-    public List<SmartMeter> requestedSmartMeters() {
-        return userService.requestedSmartMeters();
     }
 
 }
