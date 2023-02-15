@@ -26,19 +26,30 @@
     transform: translate(-50%, -50%);
 }
 
+th, td {
+    padding: 15px;
+  }
+
 .table-container {
     display: flex;
-    width: 200%;
+    width: 120%;
     margin-top: 10px;
-    margin-left: 45%;
-    background-color: whitesmoke;
-    font-size: 55%;
+    margin-left: 27%;
+    /* background-color: whitesmoke; */
+    font-size: 50%;
 }
 
 .button-container {
+    
     padding-bottom: 16px;
+    /* background-color: aquamarine; */
   }
 
-  .demo-button {
-    margin-left: 8px;
+  .enroll-button {
+    margin-left: 20px;
   }
+
+  /* .switch {
+    width: 50%;
+    height: 25px;
+  } */

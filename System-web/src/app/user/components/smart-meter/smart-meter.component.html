@@ -3,30 +3,31 @@
   <div class="page__content shadow p-3 position-relative">
     <div class="page__content-data position-absolute text-center">
       <div class="button-container">
-        <button mat-raised-button (click)="enroll()" class="demo-button" color="primary">
+        <button mat-raised-button (click)="enrollSmartMeter()" class="enroll-button" color="primary">
           enroll
         </button>
       </div>
       <div class="table-container">
-        
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#id</th>
-                    <th scope="col">Provider</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Switch Provider</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                </tbody>
-            </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#id</th>
+              <th scope="col">Provider</th>
+              <th scope="col">Status</th>
+              <th scope="col">Switch Provider</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let smartMeter of smartMeters">
+              <td scope="row">{{smartMeter.id}}</td>
+              <td>{{smartMeter.providerName}}</td>
+              <td>{{smartMeter.status}}</td>
+              <!-- <td><button mat-mini-fab color="primary" class="switch"><mat-icon>redo</mat-icon></button></td> -->
+              <td><button mat-raised-button color="primary" class="switch">Switch</button></td>
+
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
