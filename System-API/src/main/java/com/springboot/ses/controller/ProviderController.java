@@ -26,8 +26,14 @@ public class ProviderController {
         return providerService.checkRates();
     }
 
+    @GetMapping("/display")
+    public List<Provider> getAllProviders() {
+        return providerService.getAllProviders();
+    }
+
     @PutMapping("update-status/{id}")
     public String updateStatus(@PathVariable String id, @RequestBody Provider updateProvider) {
         return providerService.updateStatus(id, updateProvider);
     }
+
 }

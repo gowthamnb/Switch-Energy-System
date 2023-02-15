@@ -33,4 +33,8 @@ public class ProviderService {
     public List<Provider> checkRates() {
         return providerRepository.checkRates();
     }
+
+    public List<Provider> getAllProviders() {
+        return providerRepository.getAllProviders();
+    }
 }

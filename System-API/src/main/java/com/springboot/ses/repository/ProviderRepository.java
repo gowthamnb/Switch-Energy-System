@@ -38,4 +38,8 @@ public class ProviderRepository {
     public List<Provider> checkRates() {
         return mongoTemplate.findAll(Provider.class);
     }
+
+    public List<Provider> getAllProviders() {
+        return mongoTemplate.findAll(Provider.class);
+    }
 }
