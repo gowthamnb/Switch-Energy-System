@@ -7,6 +7,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 
 import { UserComponent } from './user.component';
 import { UserNavComponent } from './components/user-nav/user-nav.component';
@@ -36,7 +38,9 @@ import { UserRoutingModule } from './user-routing.module';
     MatMenuModule,
     MatIconModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatButtonModule
   ]
 })
 export class UserModule { }

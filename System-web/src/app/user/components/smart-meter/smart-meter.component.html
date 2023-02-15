@@ -2,7 +2,51 @@
   <div class="d-flex page__box p-3 mt-2">Smart Meter</div>
   <div class="page__content shadow p-3 position-relative">
     <div class="page__content-data position-absolute text-center">
-      Smart Meter Works
+      <div class="button-container">
+        <button mat-raised-button (click)="enroll()" class="demo-button" color="primary">
+          enroll
+        </button>
+      </div>
+      <div class="table-container">
+        
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#id</th>
+                    <th scope="col">Provider</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Switch Provider</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                </tbody>
+            </table>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>#id</th>
+            <td mat-cell *matCellDef="let element">{{element.id}}</td>
+          </ng-container>
+          <ng-container matColumnDef="Provider">
+            <th mat-header-cell *matHeaderCellDef>Provider</th>
+            <td mat-cell *matCellDef="let element">{{element.providerName}}</td>
+          </ng-container>
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element">{{element.status}}</td>
+          </ng-container>
+          <ng-container matColumnDef="Switch Provider">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element"><button mat-raised-button color="primary">Switch</button></td>
+          </ng-container>
+        </table> -->

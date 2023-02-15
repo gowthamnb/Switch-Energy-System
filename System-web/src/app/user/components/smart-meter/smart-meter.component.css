@@ -25,3 +25,20 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.table-container {
+    display: flex;
+    width: 200%;
+    margin-top: 10px;
+    margin-left: 45%;
+    background-color: whitesmoke;
+    font-size: 55%;
+}
+
+.button-container {
+    padding-bottom: 16px;
+  }
+
+  .demo-button {
+    margin-left: 8px;
+  }
