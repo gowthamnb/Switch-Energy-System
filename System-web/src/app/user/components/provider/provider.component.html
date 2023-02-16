@@ -10,7 +10,7 @@
               <th scope="col">#id</th>
               <th scope="col">Provider Name</th>
               <th scope="col">Rate</th>
-              <th scope="col">Status</th>
+              <!-- <th scope="col">Status</th> -->
             </tr>
           </thead>
           <tbody>
@@ -18,7 +18,8 @@
               <td scope="row">{{provider.id}}</td>
               <td>{{provider.name}}</td>
               <td>{{provider.rate}}</td>
-              <td>{{provider.isEnabled}}</td>
+              <!-- <td><ng-container *ngIf="provider.isEnabled==true; ngIfElse elseBlock">Enabled</ng-container> 
+              <ng-template #elseBlock>Disabled</ng-template></td> -->
             </tr>
           </tbody>
         </table>
