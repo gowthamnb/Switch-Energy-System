@@ -24,6 +24,8 @@ import { ProviderComponent } from './components/provider/provider.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PayComponent } from './components/pay/pay.component';
 import { EnrollSmartMeterDialogBoxComponent } from '../user/components/enroll-smart-meter-dialog-box/enroll-smart-meter-dialog-box.component';
+import { SwitchProviderBottomSheetComponent } from '../user/components/switch-provider-bottom-sheet/switch-provider-bottom-sheet.component';
+
 import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
@@ -36,6 +38,7 @@ import { UserRoutingModule } from './user-routing.module';
     HeaderComponent,
     PayComponent,
     EnrollSmartMeterDialogBoxComponent,
+    SwitchProviderBottomSheetComponent,
   ],
   imports: [
     CommonModule,

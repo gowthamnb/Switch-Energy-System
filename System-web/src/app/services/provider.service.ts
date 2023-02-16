@@ -7,6 +7,9 @@ import { Provider } from 'src/app/interfaces/provider';
   providedIn: 'root'
 })
 export class ProviderService {
+  enrollSmartMeter() {
+    throw new Error('Method not implemented.');
+  }
 
   url = 'http://localhost:9999/provider';
 

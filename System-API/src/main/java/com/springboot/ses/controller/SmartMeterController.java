@@ -17,7 +17,7 @@ public class SmartMeterController {
     @Autowired
     private SmartMeterService smartMeterService;
     @PostMapping("/{id}/enroll")
-    public String enrollSmartMeter(@PathVariable String id, @RequestBody Provider provider) {
+    public String enrollSmartMeter(@PathVariable String id, @RequestBody String provider) {
         return smartMeterService.enroll(id, provider);
     }
 

@@ -15,11 +15,11 @@ public class SmartMeterService {
     @Autowired
     private SmartMeterRepository smartMeterRepository;
 
-    public String enroll(String id, Provider provider) {
+    public String enroll(String id, String provider) {
         SmartMeter smartMeter = new SmartMeter();
-        smartMeter.setId(generateId(id));
+//        smartMeter.setId(generateId(id));
         smartMeter.setUserId(id);
-        smartMeter.setProviderName(provider.getName());
+        smartMeter.setProviderName(provider);
         smartMeter.setStatus("Pending");
         return smartMeterRepository.enroll(smartMeter);
     }

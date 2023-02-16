@@ -28,7 +28,6 @@ export class SmartMeterComponent implements OnInit {
   ngOnInit(): void {
      this.smartMeterService.getSmartMeters('gowthamnb21@gmail.com').subscribe(res => {
       this.smartMeters = res;
-      console.log(this.smartMeters)
   })
   }
 
@@ -39,27 +38,13 @@ export class SmartMeterComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.newSmartMeter = result;
+      this.ngOnInit();
     });
+    
+  }
+
+  switchProvider() {
+    
   }
 
 }
-
-// @Component({
-//   selector: 'enroll-smart-meter-dialogue',
-//   templateUrl: 'enroll-smart-meter-dialog.html'
-// })
-// export class DialogOverview {
-//   newSmartMeter: Provider = {
-//     id: '',
-//     name: '',
-//     rate: 0,
-//     status: ''
-//   };
-//   constructor(public dialogRef: MatDialogRef<DialogOverview>, 
-//     @Inject(MAT_DIALOG_DATA) public data: Provider,
-//   ) {}
-
-//   onNoClick(): void {
-//     this.dialogRef.close();
-//   }
-// }

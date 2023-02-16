@@ -16,7 +16,7 @@ public class ProviderService {
     private ProviderRepository providerRepository;
 
     public String enrollProvider(Provider newProvider) {
-        newProvider.setId(generateId());
+//        newProvider.setId(generateId());
         newProvider.setStatus("Enabled");
         return providerRepository.enrollProvider(newProvider);
     }
