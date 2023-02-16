@@ -13,6 +13,22 @@ export class SmartMeterService {
 
   url = 'http://localhost:9999/smart-meter';
 
+  getAllSmartMeters(): Observable<SmartMeter[]>  {
+    return this.http.get<SmartMeter[]>(this.url);
+  }
+
+  getSmartMetersRequests(): Observable<SmartMeter[]> {
+    return this.http.get<SmartMeter[]>(this.url + '/requests');
+  }
+
+  acceptRequest(smartMeterId: String | null | undefined): Observable<string> {
+    return this.http.put<string>(this.url + '/' + smartMeterId + '/approve', null);
+  }
+
+  declineRequest(smartMeterId: String | null | undefined): Observable<string> {
+    return this.http.put<string>(this.url + '/' + smartMeterId + '/reject', null);
+  }
+
   getSmartMeters(userId: string): Observable<SmartMeter[]> {
     return this.http.get<SmartMeter[]>(this.url + '/' + userId + '/display');
   }
@@ -24,4 +40,6 @@ export class SmartMeterService {
   switchProvider(smartMeterId: string, selectedSmartMeterProvider: Provider): Observable<SmartMeter> {
     return this.http.put<SmartMeter>(this.url + '/' + smartMeterId + '/switch-provider', selectedSmartMeterProvider);
   }
+
+
 }

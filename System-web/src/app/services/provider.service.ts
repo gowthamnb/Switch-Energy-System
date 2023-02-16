@@ -7,9 +7,6 @@ import { Provider } from 'src/app/interfaces/provider';
   providedIn: 'root'
 })
 export class ProviderService {
-  enrollSmartMeter() {
-    throw new Error('Method not implemented.');
-  }
 
   url = 'http://localhost:9999/provider';
 
@@ -17,5 +14,9 @@ export class ProviderService {
 
   getAllProviders(): Observable<Provider[]> {
     return this.http.get<Provider[]>(this.url + '/display');
+  }
+
+  enrollProvider(newProviderData: Object): Observable<Object> {
+    return this.http.post(this.url + '/enroll', newProviderData);
   }
 }

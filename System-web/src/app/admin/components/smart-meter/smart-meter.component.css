@@ -25,3 +25,28 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.button-class {
+    margin-top: 10px;
+    margin-left: 120%;
+    padding-bottom: 10px;
+}
+
+button {
+    background-color: yellow;
+}
+
+
+th, td {
+    padding: 15px;
+  }
+
+.table-container {
+    display: flex;
+    width: 120%;
+    margin-top: 10px;
+    margin-left: 13%;
+    /* background-color: whitesmoke; */
+    font-size: 50%;
+}
+
