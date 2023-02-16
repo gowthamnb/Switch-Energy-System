@@ -1,7 +1,5 @@
 package com.springboot.ses.controller;
 
-import com.springboot.ses.pojo.Provider;
-
 import com.springboot.ses.pojo.SmartMeter;
 import com.springboot.ses.service.SmartMeterService;
 import org.springframework.beans.factory.annotation.Autowired;

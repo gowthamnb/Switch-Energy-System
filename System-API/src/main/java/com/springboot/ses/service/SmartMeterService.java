@@ -3,6 +3,7 @@ package com.springboot.ses.service;
 import com.springboot.ses.SesApplication;
 import com.springboot.ses.pojo.Reading;
 import com.springboot.ses.pojo.SmartMeter;
+import com.springboot.ses.repository.CalculateBillAmountRepository;
 import com.springboot.ses.repository.SmartMeterRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,15 @@ public class SmartMeterService {
     @Autowired
     private SmartMeterRepository smartMeterRepository;
 
+    @Autowired
+    private CalculateBillAmountRepository calculateBillAmountRepository;
+
     @Scheduled(cron="1 * * * * *")
     public void generateReading() {
         logger.info("generated");
+        calculateBillAmountRepository.calculateBillAmount();
         smartMeterRepository.generateReadings();
+
     }
 
     public String enroll(String id, String provider) {
