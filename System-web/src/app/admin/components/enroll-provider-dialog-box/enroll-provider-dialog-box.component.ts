@@ -18,7 +18,7 @@ export class EnrollProviderDialogBoxComponent implements OnInit {
     id: '',
     name: '',
     rate: 0,
-    status: ''
+    isEnabled: ''
   };
 
   constructor(public dialogRef: MatDialogRef<EnrollProviderDialogBoxComponent>, 

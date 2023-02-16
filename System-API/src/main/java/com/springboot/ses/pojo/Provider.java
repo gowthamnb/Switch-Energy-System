@@ -10,13 +10,13 @@ public class Provider {
     private String id;
     private String name;
     private int rate;
-    private String status;
+    private boolean isEnabled;
 
-    public Provider(String id, String name, int rate, String status) {
+    public Provider(String id, String name, int rate, boolean isEnabled) {
         this.id = id;
         this.name = name;
         this.rate = rate;
-        this.status = status;
+        this.isEnabled = isEnabled;
     }
 
     public String getId() {
@@ -43,11 +43,11 @@ public class Provider {
         this.rate = rate;
     }
 
-    public String getStatus() {
-        return status;
+    public boolean getIsEnabled() {
+        return isEnabled;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setIsEnabled(boolean isEnabled) {
+        this.isEnabled = isEnabled;
     }
 }

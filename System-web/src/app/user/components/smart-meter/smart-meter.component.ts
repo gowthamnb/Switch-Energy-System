@@ -26,7 +26,7 @@ export class SmartMeterComponent implements OnInit {
     id: '',
     name: '',
     rate: 0,
-    status: ''
+    isEnabled: ''
   };
 
   ngOnInit(): void {

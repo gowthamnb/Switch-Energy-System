@@ -19,7 +19,7 @@ export class SwitchProviderBottomSheetComponent implements OnInit {
   id: '',
   name: '',
   rate: 0,
-  status: ''
+  isEnabled: ''
 };
 
   constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: string, private _bottomSheetRef: MatBottomSheetRef<SwitchProviderBottomSheetComponent>, 

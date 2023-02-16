@@ -17,7 +17,7 @@ public class ProviderService {
 
     public String enrollProvider(Provider newProvider) {
 //        newProvider.setId(generateId());
-        newProvider.setStatus("Enabled");
+        newProvider.setIsEnabled(true);
         return providerRepository.enrollProvider(newProvider);
     }
 
@@ -26,8 +26,8 @@ public class ProviderService {
         return providerId;
     }
 
-    public String updateStatus(String id, Provider updateProvider) {
-        return providerRepository.updateStatus(id, updateProvider);
+    public String updateStatus(String id) {
+        return providerRepository.updateStatus(id);
     }
 
     public List<Provider> checkRates() {

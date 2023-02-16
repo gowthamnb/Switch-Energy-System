@@ -21,15 +21,11 @@ public class ProviderRepository {
         return "Provider enrolled!!";
     }
 
-    public String updateStatus(String id, Provider updateProvider) {
+    public String updateStatus(String id) {
         Query query = new Query().addCriteria(Criteria.where("id").is(id));
         Update update = new Update();
-        if(updateProvider.getStatus() != null) {
-            update.set("status", updateProvider.getStatus());
-        }
-        if(updateProvider.getStatus() == "Disabled") {
-
-        }
+        Provider provider = mongoTemplate.findOne(Query.query(Criteria.where("id").is(id)), Provider.class);
+        update.set("isEnabled", !provider.getIsEnabled());
         mongoTemplate.findAndModify(query, update, Provider.class);
 
         return "Status Updated!!";

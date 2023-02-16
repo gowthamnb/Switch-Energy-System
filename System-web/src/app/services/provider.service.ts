@@ -19,4 +19,9 @@ export class ProviderService {
   enrollProvider(newProviderData: Object): Observable<Object> {
     return this.http.post(this.url + '/enroll', newProviderData);
   }
+
+  enableDisableProvider(providerId: String | null | undefined): Observable<object> {
+    return this.http.put<String>(this.url + '/update-status/' + providerId, null); 
+  }
+
 }

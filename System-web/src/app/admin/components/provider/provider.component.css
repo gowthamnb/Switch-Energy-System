@@ -26,6 +26,11 @@
     transform: translate(-50%, -50%);
 }
 
+.button-class {
+    margin-top: 10px;
+    margin-left: 120%;
+    padding-bottom: 10px;
+}
 
 th, td {
     padding: 15px;
@@ -35,7 +40,15 @@ th, td {
     display: flex;
     width: 120%;
     margin-top: 10px;
-    margin-left: 29%;
+    margin-left: 15%;
     /* background-color: whitesmoke; */
     font-size: 50%;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
 }

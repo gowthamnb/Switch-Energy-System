@@ -17,7 +17,6 @@ import java.util.List;
 
 @Service
 public class SmartMeterService {
-
     private static final Logger logger = LoggerFactory.getLogger(SesApplication.class);
 
     @Autowired

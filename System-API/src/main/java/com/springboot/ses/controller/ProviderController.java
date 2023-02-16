@@ -32,8 +32,8 @@ public class ProviderController {
     }
 
     @PutMapping("update-status/{id}")
-    public String updateStatus(@PathVariable String id, @RequestBody Provider updateProvider) {
-        return providerService.updateStatus(id, updateProvider);
+    public String updateStatus(@PathVariable String id) {
+        return providerService.updateStatus(id);
     }
 
 }

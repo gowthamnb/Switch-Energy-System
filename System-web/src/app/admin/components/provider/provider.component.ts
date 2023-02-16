@@ -17,7 +17,7 @@ export class ProviderComponent implements OnInit {
     id: '',
     name: '',
     rate: 0,
-    status: ''
+    isEnabled: '',
   };
 
   constructor(private providerService: ProviderService, private router: Router,
@@ -41,4 +41,14 @@ export class ProviderComponent implements OnInit {
     
   }
 
-}
+  disable(provider: Provider): void {
+    this.providerService.enableDisableProvider(provider.id).subscribe()
+      provider.isEnabled = false;
+  }
+
+  enable(provider: Provider): void {
+    this.providerService.enableDisableProvider(provider.id).subscribe()
+      provider.isEnabled = true;
+    };
+  }
+

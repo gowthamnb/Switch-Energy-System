@@ -2,7 +2,7 @@
     <div class="d-flex page__box p-3 mt-2">Providers</div>
     <div class="page__content shadow p-3 position-relative">
         <div class="page__content-data position-absolute text-center">
-          <div class="button-container">
+          <div class="button-class">
             <button mat-raised-button (click)="enrollProvider()" class="enroll-button" color="primary">
               enroll
             </button>
@@ -22,7 +22,11 @@
                       <td scope="row">{{provider.id}}</td>
                       <td>{{provider.name}}</td>
                       <td>{{provider.rate}}</td>
-                      <td>{{provider.status}}</td>
+                      <td><button mat-raised-button *ngIf="provider.isEnabled == true" class="red" (click)="disable(provider)">Disable</button>
+                        <button mat-raised-button *ngIf="provider.isEnabled == false" class="green" (click)="enable(provider)">Enable</button>
+                      </td>
+
+                      <!-- <td><button mat-raised-button [ngClass]="{'green' : buttonToggle, 'red': !buttonToggle}" (click)="enableDisable(provider.id)">{{status}}</button></td> -->
                     </tr>
                   </tbody>
                 </table>
