@@ -1,19 +1,32 @@
 package com.springboot.ses.service;
 
-import com.springboot.ses.pojo.Provider;
+import com.springboot.ses.SesApplication;
+import com.springboot.ses.pojo.Reading;
 import com.springboot.ses.pojo.SmartMeter;
-
 import com.springboot.ses.repository.SmartMeterRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 @Service
 public class SmartMeterService {
 
+    private static final Logger logger = LoggerFactory.getLogger(SesApplication.class);
+
     @Autowired
     private SmartMeterRepository smartMeterRepository;
+
+    @Scheduled(cron="1 * * * * *")
+    public void generateReading() {
+        logger.info("generated");
+        smartMeterRepository.generateReadings();
+    }
 
     public String enroll(String id, String provider) {
         SmartMeter smartMeter = new SmartMeter();
@@ -39,6 +52,7 @@ public class SmartMeterService {
     }
 
     public String approveSmartMeter(String id) {
+
         return smartMeterRepository.approveSmartMeter(id);
     }
 

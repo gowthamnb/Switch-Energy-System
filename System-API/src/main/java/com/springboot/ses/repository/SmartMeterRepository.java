@@ -1,7 +1,9 @@
 package com.springboot.ses.repository;
 
-import com.springboot.ses.pojo.Provider;
+import com.springboot.ses.pojo.Reading;
+import com.springboot.ses.pojo.Readings;
 import com.springboot.ses.pojo.SmartMeter;
+import com.springboot.ses.service.SmartMeterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -17,12 +19,17 @@ public class SmartMeterRepository {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    @Autowired
+    private SmartMeterService smartMeterService;
+
     public List<SmartMeter> getAllSmartMeters() {
         return mongoTemplate.findAll(SmartMeter.class);
     }
 
     public String enroll(SmartMeter smartMeter) {
         mongoTemplate.save(smartMeter);
+        Readings readings = new Readings(smartMeter.getId());
+        mongoTemplate.save(readings);
         return "Smart Meter Requested!!";
     }
 
@@ -67,4 +74,9 @@ public class SmartMeterRepository {
         return "Provider Switched!!";
     }
 
+    public void generateReadings() {
+        Reading reading = new Reading(5);
+        mongoTemplate.updateMulti(new Query().addCriteria(Criteria.where("isEnabled").is(true)),
+                new Update().push("generatedReadings", reading), Readings.class);
+    }
 }
