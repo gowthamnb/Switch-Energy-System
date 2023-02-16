@@ -3,16 +3,34 @@ package com.springboot.ses.pojo;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@EntityScan
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Document(collection="users")
 public class User {
     @Id
     private String id;
+    private String username;
     private String name;
     private long contactNumber;
     private String email;
     private String password;
-    private String role;
+    private String roles;
     private String address;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getId() {
         return id;
@@ -55,11 +73,11 @@ public class User {
     }
 
     public String getRole() {
-        return role;
+        return roles;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 
     public String getAddress() {
