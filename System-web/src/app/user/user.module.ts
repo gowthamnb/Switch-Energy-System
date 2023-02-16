@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 import { UserComponent } from './user.component';
 import { UserNavComponent } from './components/user-nav/user-nav.component';
@@ -57,7 +58,8 @@ import { UserRoutingModule } from './user-routing.module';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatSelectModule 
+    MatSelectModule,
+    MatBottomSheetModule 
   ]
 })
 export class UserModule { }

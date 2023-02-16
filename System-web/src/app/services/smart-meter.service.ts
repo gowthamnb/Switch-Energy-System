@@ -18,8 +18,10 @@ export class SmartMeterService {
   }
 
   enrollSmartMeter(userId: string, newSmartMeterProvider: Provider): Observable<SmartMeter>{
-    console.log(newSmartMeterProvider);
     return this.http.post<SmartMeter>(this.url + '/' + userId + '/enroll', newSmartMeterProvider);
-    
+  }
+
+  switchProvider(smartMeterId: string, selectedSmartMeterProvider: Provider): Observable<SmartMeter> {
+    return this.http.put<SmartMeter>(this.url + '/' + smartMeterId + '/switch-provider', selectedSmartMeterProvider);
   }
 }

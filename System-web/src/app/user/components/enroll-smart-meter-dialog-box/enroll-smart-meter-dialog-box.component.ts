@@ -27,7 +27,6 @@ export class EnrollSmartMeterDialogBoxComponent implements OnInit {
   ngOnInit(): void {
     this.providerService.getAllProviders().subscribe(res => {
       this.providers = res;
-      console.log(this.providers)
   });
 }
 

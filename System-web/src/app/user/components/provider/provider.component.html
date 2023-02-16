@@ -2,7 +2,27 @@
     <div class="d-flex page__box p-3 mt-2">Providers</div>
     <div class="page__content shadow p-3 position-relative">
       <div class="page__content-data position-absolute text-center">
-        Provider Works
+       
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#id</th>
+              <th scope="col">Provider Name</th>
+              <th scope="col">Rate</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let provider of providers">
+              <td scope="row">{{provider.id}}</td>
+              <td>{{provider.name}}</td>
+              <td>{{provider.rate}}</td>
+              <td>{{provider.status}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       </div>
     </div>
   </div>

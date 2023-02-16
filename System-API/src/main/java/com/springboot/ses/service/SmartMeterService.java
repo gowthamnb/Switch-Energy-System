@@ -47,7 +47,7 @@ public class SmartMeterService {
     }
 
 
-    public String switchSmartMeter(String id, Provider provider) {
+    public String switchSmartMeter(String id, String provider) {
         return smartMeterRepository.switchSmartMeter(id, provider);
     }
 }

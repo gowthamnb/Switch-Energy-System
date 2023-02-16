@@ -45,7 +45,7 @@ public class SmartMeterController {
 
 
     @PutMapping("/{id}/switch-provider")
-    public String switchSmartMeter(@PathVariable("id") String id, @RequestBody Provider provider) {
+    public String switchSmartMeter(@PathVariable("id") String id, @RequestBody String provider) {
 
         return smartMeterService.switchSmartMeter(id, provider);
     }

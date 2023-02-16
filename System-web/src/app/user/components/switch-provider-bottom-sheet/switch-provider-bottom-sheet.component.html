@@ -1,1 +1,16 @@
-<p>switch-provider-bottom-sheet works!</p>
+<div class="container">
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Select Provider</mat-label>
+            <mat-select [(ngModel)]="selectedSmartMeterProvider"name="provider">
+                <mat-option *ngFor="let provider of providers" [value]="provider.name">
+                    {{provider.name}}
+                  </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </form>
+    <div class="button-container">
+        <button mat-raised-button (click)="switchProvider()" class="switch-button" color="primary">
+          Switch
+        </button>
+</div>

@@ -51,12 +51,12 @@ public class SmartMeterRepository {
         return "Smart Meter Rejected!!";
     }
 
-    public String switchSmartMeter(String id, Provider provider) {
+    public String switchSmartMeter(String id, String provider) {
         Query query1 = new Query().addCriteria(Criteria.where("id").is(id));
         Update update = new Update();
         SmartMeter updateSmartMeter = mongoTemplate.findOne(Query.query(Criteria.where("id").is(id)), SmartMeter.class);
-        if(provider.getName() != null) {
-            update.set("providerName", provider.getName());
+        if(provider != null) {
+            update.set("providerName", provider);
         }
 
         mongoTemplate.findAndModify(query1, update, SmartMeter.class);
