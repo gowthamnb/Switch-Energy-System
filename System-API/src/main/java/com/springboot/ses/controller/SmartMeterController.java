@@ -21,6 +21,11 @@ public class SmartMeterController {
         return smartMeterService.enroll(id, provider);
     }
 
+    @GetMapping()
+    public List<SmartMeter> getAllSmartMeters() {
+        return smartMeterService.getAllSmartMeters();
+    }
+
     @GetMapping("/{id}/display")
     public List<SmartMeter> getSmartMeters(@PathVariable("id") String id) {
         return smartMeterService.getSmartMeters(id);

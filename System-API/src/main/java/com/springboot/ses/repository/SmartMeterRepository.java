@@ -17,6 +17,10 @@ public class SmartMeterRepository {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    public List<SmartMeter> getAllSmartMeters() {
+        return mongoTemplate.findAll(SmartMeter.class);
+    }
+
     public String enroll(SmartMeter smartMeter) {
         mongoTemplate.save(smartMeter);
         return "Smart Meter Requested!!";
@@ -62,4 +66,5 @@ public class SmartMeterRepository {
         mongoTemplate.findAndModify(query1, update, SmartMeter.class);
         return "Provider Switched!!";
     }
+
 }

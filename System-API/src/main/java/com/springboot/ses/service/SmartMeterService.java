@@ -50,4 +50,8 @@ public class SmartMeterService {
     public String switchSmartMeter(String id, String provider) {
         return smartMeterRepository.switchSmartMeter(id, provider);
     }
+
+    public List<SmartMeter> getAllSmartMeters() {
+        return smartMeterRepository.getAllSmartMeters();
+    }
 }
