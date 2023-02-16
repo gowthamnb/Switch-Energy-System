@@ -14,8 +14,8 @@
           <td scope="row">{{smartMeter.id}}</td>
           <td>{{smartMeter.userId}}</td>
           <td>{{smartMeter.providerName}}</td>
-          <td><button mat-raised-button class="accept" (click)="acceptRequest(smartMeter.id)">Accept</button></td>
-          <td><button mat-raised-button class="decline" (click)="declineRequest(smartMeter.id)">Decline</button></td>
+          <td><button mat-raised-button mat-dialog-close class="accept" (click)="acceptRequest(smartMeter.id)">Accept</button></td>
+          <td><button mat-raised-button mat-dialog-close class="decline" (click)="declineRequest(smartMeter.id)">Decline</button></td>
         </tr>
       </tbody>
     </table>

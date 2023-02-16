@@ -18,7 +18,6 @@ export class SmartMeterComponent implements OnInit {
   ngOnInit(): void {
     this.smartMeterService.getAllSmartMeters().subscribe(res => {
       this.smartMeters = res
-      console.log(this.smartMeters)
     });
   }
 
@@ -26,7 +25,7 @@ export class SmartMeterComponent implements OnInit {
     const dialogRef = this.dialog.open(ShowSmartMeterRequestsComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.ngOnInit();
     });
   }
   }

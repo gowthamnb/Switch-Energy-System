@@ -21,12 +21,11 @@ export class ShowSmartMeterRequestsComponent implements OnInit {
 
   acceptRequest(smartMeterId: String | null | undefined): void {
     this.smartMeterService.acceptRequest(smartMeterId).subscribe();
-    this.ngOnInit();
+    
   }
 
   declineRequest(smartMeterId: String | null | undefined) {
     this.smartMeterService.declineRequest(smartMeterId).subscribe();
-    this.ngOnInit();
   }
 
 }

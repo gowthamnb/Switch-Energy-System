@@ -48,7 +48,8 @@ export class SmartMeterComponent implements OnInit {
   }
 
   switchProvider(smartmeterId: string | null |undefined): void {
-    const _bottomSheetRef = this._bottomSheet.open(SwitchProviderBottomSheetComponent, {
+    const _bottomSheetRef = this._bottomSheet.open(SwitchProviderBottomSheetComponent, { 
+      
       data: smartmeterId,
     });
 
