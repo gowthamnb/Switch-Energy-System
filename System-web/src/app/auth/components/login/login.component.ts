@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -21,8 +22,10 @@ export class LoginComponent implements OnInit {
   });
 
   logIn(logInData: Object) {
-
-    this.router.navigate(['user/smart-meters']);
+    this.userService.login(this.loginForm.value).subscribe(res => {
+      console.log(res)
+    });
+    // this.router.navigate(['user/smart-meters']);
   }
 
 }

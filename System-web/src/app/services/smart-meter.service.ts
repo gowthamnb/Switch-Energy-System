@@ -33,7 +33,7 @@ export class SmartMeterService {
     return this.http.get<SmartMeter[]>(this.url + '/' + userId + '/display');
   }
 
-  enrollSmartMeter(userId: string, newSmartMeterProvider: Provider): Observable<SmartMeter>{
+  enrollSmartMeter(userId: String | null | undefined, newSmartMeterProvider: String | null | undefined): Observable<SmartMeter>{
     return this.http.post<SmartMeter>(this.url + '/' + userId + '/enroll', newSmartMeterProvider);
   }
 
