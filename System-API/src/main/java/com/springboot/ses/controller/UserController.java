@@ -21,4 +21,9 @@ public class UserController {
     public String signUp(@RequestBody User newUser) {
         return userService.signUp(newUser);
     }
+
+    @GetMapping("/welcome")
+    public String welcomeMessage() {
+        return "Welcome !!";
+    }
 }
