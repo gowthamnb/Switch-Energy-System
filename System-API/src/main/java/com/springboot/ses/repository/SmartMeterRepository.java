@@ -79,4 +79,8 @@ public class SmartMeterRepository {
         mongoTemplate.updateMulti(new Query().addCriteria(Criteria.where("isEnabled").is(true)),
                 new Update().push("generatedReadings", reading), Readings.class);
     }
+
+    public String generateBill(String id) {
+        return "Bill Generated!!";
+    }
 }

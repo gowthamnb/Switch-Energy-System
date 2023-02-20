@@ -72,4 +72,9 @@ public class SmartMeterService {
     public List<SmartMeter> getAllSmartMeters() {
         return smartMeterRepository.getAllSmartMeters();
     }
+
+    public String generateBill(String id) {
+
+        return smartMeterRepository.generateBill(id);
+    }
 }

@@ -52,4 +52,9 @@ public class SmartMeterController {
 
         return smartMeterService.switchSmartMeter(id, provider);
     }
+
+    @PostMapping("/bill/{id}")
+    public String generateBill(@PathVariable("id") String id) {
+        return smartMeterService.generateBill(id);
+    }
 }

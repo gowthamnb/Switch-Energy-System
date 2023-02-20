@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
@@ -13,7 +13,9 @@ import Swal from 'sweetalert2';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService, private formbuilder: FormBuilder) { 
+
+  }
 
   ngOnInit(): void {
   }
@@ -25,9 +27,28 @@ export class SignupComponent implements OnInit {
     contactNumber: new FormControl('', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]),
     email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
     address: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+')]),
-    password: new FormControl('', [Validators.required, Validators.pattern('')]),
+    password: new FormControl('', Validators.compose([Validators.required, Validators.pattern(''), Validators.minLength(8)])),
     confirmPassword: new FormControl('', [Validators.required, Validators.pattern('')])
+  }, {
+    // Validators: this.mustMatch('password', 'confirmPassword')
   });
+
+  mustMatch(password: any, confirmPassword: any) {
+    return (formGroup: FormGroup) => {
+      const passwordControl=formGroup.controls[password];
+      const confirmPasswordControl=formGroup.controls[confirmPassword];
+      if(confirmPassword.errors && !confirmPassword.errors['mustMatch']) {
+        return;
+      }
+
+      if(passwordControl.value!==confirmPasswordControl.value) {
+        confirmPasswordControl.setErrors({ mustMatch: true });
+      }
+      else {
+        confirmPasswordControl.setErrors(null);
+      }
+    }
+  }
 
   signup(signupData: Object) {
     let resultMessage: string = '';
@@ -71,6 +92,9 @@ export class SignupComponent implements OnInit {
       }
     });
   }
-}
 
+  get f() {
+     return this.signupForm.controls;
+  }
+}
 
