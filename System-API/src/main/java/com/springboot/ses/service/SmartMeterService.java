@@ -1,7 +1,6 @@
 package com.springboot.ses.service;
 
 import com.springboot.ses.SesApplication;
-import com.springboot.ses.pojo.Reading;
 import com.springboot.ses.pojo.SmartMeter;
 import com.springboot.ses.repository.CalculateBillAmountRepository;
 import com.springboot.ses.repository.SmartMeterRepository;

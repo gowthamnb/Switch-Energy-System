@@ -81,6 +81,8 @@ public class SmartMeterRepository {
     }
 
     public String generateBill(String id) {
+        Readings readings = mongoTemplate.findOne(Query.query(Criteria.where("userId").is(id)), Readings.class);
+        readings.getGeneratedReadings().size();
         return "Bill Generated!!";
     }
 }

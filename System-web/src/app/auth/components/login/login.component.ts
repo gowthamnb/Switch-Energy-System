@@ -23,9 +23,13 @@ export class LoginComponent implements OnInit {
 
   logIn(logInData: Object) {
     this.userService.login(this.loginForm.value).subscribe(res => {
-      console.log(res)
+      // if(logInData. == 'Admin')
+      //  this.router.navigate(['/admin/smart-meters']);
+      // else
+      // this.router.navigate(['/user/smart-meters']);
+
     });
-    // this.router.navigate(['user/smart-meters']);
+   
   }
 
 }
