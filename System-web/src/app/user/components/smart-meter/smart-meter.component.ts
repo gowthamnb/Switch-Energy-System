@@ -30,7 +30,7 @@ export class SmartMeterComponent implements OnInit {
   };
 
   ngOnInit(): void {
-     this.smartMeterService.getSmartMeters('gowthamnb21@gmail.com').subscribe(res => {
+     this.smartMeterService.getSmartMeters(sessionStorage.getItem('username')).subscribe(res => {
       this.smartMeters = res;
   })
   }

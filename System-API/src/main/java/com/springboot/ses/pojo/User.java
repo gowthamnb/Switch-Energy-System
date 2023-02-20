@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@EntityScan
+//@EntityScan
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

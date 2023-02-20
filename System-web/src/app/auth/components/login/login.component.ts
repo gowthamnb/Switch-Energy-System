@@ -3,6 +3,8 @@ import { Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { SmartMeterService } from '../../../services/smart-meter.service';
+import { Login } from 'src/app/interfaces/login';
 
 @Component({
   selector: 'app-login',
@@ -16,20 +18,41 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  res: Login = {
+    token: '',
+    role: '',
+    username: '',
+  }
+
   loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    username: new FormControl('gowthamnb21@gmail.com', Validators.required),
+    password: new FormControl('Gowtham@123', Validators.required)
   });
 
   logIn(logInData: Object) {
     this.userService.login(this.loginForm.value).subscribe(res => {
-      // if(logInData. == 'Admin')
-      //  this.router.navigate(['/admin/smart-meters']);
-      // else
-      // this.router.navigate(['/user/smart-meters']);
+      sessionStorage.setItem('token', res.token);
+      sessionStorage.setItem('username', res.username);
+      sessionStorage.setItem('role', res.role);
+      if(res.role == 'ROLE_ADMIN') {
+        this.router.navigate(['/admin/smart-meters']);
+      
+      }
+      else {
+        
+        this.router.navigate(['/user']);
+      }
 
+    },
+    err =>{
+      alert('Invalid details!!')
     });
-   
+
+  }
+
+  logOut() {
+    sessionStorage.clear();
+    this.router.navigate(['/auth/login'])
   }
 
 }

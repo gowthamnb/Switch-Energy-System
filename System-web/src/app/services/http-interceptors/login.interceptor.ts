@@ -10,7 +10,6 @@ export class LoginInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
    let jwtToken: HttpRequest<any>;
-
    if(req.url === 'http://localhost:9999/auth/login' || req.url === 'http://localhost:9999/user/signup') {
       jwtToken = req.clone({
         setHeaders: { Authorization: `` }

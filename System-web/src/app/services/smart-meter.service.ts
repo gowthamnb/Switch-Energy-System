@@ -29,7 +29,7 @@ export class SmartMeterService {
     return this.http.put<string>(this.url + '/' + smartMeterId + '/reject', null);
   }
 
-  getSmartMeters(userId: string): Observable<SmartMeter[]> {
+  getSmartMeters(userId: string | null): Observable<SmartMeter[]> {
     return this.http.get<SmartMeter[]>(this.url + '/' + userId + '/display');
   }
 

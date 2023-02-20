@@ -24,6 +24,11 @@ public class UserRepository {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    public String getRole(String username) {
+        User user = mongoTemplate.findOne(Query.query(Criteria.where("username").is(username)), User.class);
+        return user.getRole();
+    }
+
     public User findById(String username) {
         User user = mongoTemplate.findOne(Query.query(Criteria.where("username").is(username)), User.class);
         return user;
