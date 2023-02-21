@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'smart-meters', component: SmartMeterComponent },
   { path: 'bills', component: BillComponent },
   { path: 'providers', component: ProviderComponent },
-  { path: 'payment', component: PayComponent}
+  { path: 'payment', component: PayComponent }
 ];
 
 @NgModule({

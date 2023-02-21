@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import  {MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Router } from '@angular/router';
 
 import { SmartMeter } from 'src/app/interfaces/smartMeter';
@@ -17,11 +17,11 @@ import { SwitchProviderBottomSheetComponent } from '../switch-provider-bottom-sh
 })
 export class SmartMeterComponent implements OnInit {
 
-  constructor(private router: Router, private smartMeterService: SmartMeterService, 
+  constructor(private router: Router, private smartMeterService: SmartMeterService,
     public dialog: MatDialog, private _bottomSheet: MatBottomSheet) { }
 
   smartMeters: SmartMeter[] = [];
-  provider: Provider[] = []; 
+  provider: Provider[] = [];
   newSmartMeter: Provider = {
     id: '',
     name: '',
@@ -30,9 +30,9 @@ export class SmartMeterComponent implements OnInit {
   };
 
   ngOnInit(): void {
-     this.smartMeterService.getSmartMeters(sessionStorage.getItem('username')).subscribe(res => {
+    this.smartMeterService.getSmartMeters(sessionStorage.getItem('username')).subscribe(res => {
       this.smartMeters = res;
-  })
+    })
   }
 
   enrollSmartMeter(): void {
@@ -44,12 +44,12 @@ export class SmartMeterComponent implements OnInit {
       this.newSmartMeter = result;
       this.ngOnInit();
     });
-    
+
   }
 
-  switchProvider(smartmeterId: string | null |undefined): void {
-    const _bottomSheetRef = this._bottomSheet.open(SwitchProviderBottomSheetComponent, { 
-      
+  switchProvider(smartmeterId: string | null | undefined): void {
+    const _bottomSheetRef = this._bottomSheet.open(SwitchProviderBottomSheetComponent, {
+
       data: smartmeterId,
     });
 

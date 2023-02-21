@@ -9,7 +9,7 @@ import { ProviderService } from 'src/app/services/provider.service';
 })
 export class ProviderComponent implements OnInit {
 
-  providers: Provider[] = []; 
+  providers: Provider[] = [];
 
   constructor(private providerService: ProviderService) { }
 

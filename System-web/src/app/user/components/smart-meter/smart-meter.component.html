@@ -22,9 +22,7 @@
               <td scope="row">{{smartMeter.id}}</td>
               <td>{{smartMeter.providerName}}</td>
               <td>{{smartMeter.status}}</td>
-              <!-- <td><button mat-mini-fab color="primary" class="switch"><mat-icon>redo</mat-icon></button></td> -->
               <td><button mat-raised-button class="switch" (click)="switchProvider(smartMeter.id)">Switch</button></td>
-
             </tr>
           </tbody>
         </table>
@@ -32,22 +30,3 @@
     </div>
   </div>
 </div>
-
-<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef>#id</th>
-            <td mat-cell *matCellDef="let element">{{element.id}}</td>
-          </ng-container>
-          <ng-container matColumnDef="Provider">
-            <th mat-header-cell *matHeaderCellDef>Provider</th>
-            <td mat-cell *matCellDef="let element">{{element.providerName}}</td>
-          </ng-container>
-          <ng-container matColumnDef="Status">
-            <th mat-header-cell *matHeaderCellDef>Status</th>
-            <td mat-cell *matCellDef="let element">{{element.status}}</td>
-          </ng-container>
-          <ng-container matColumnDef="Switch Provider">
-            <th mat-header-cell *matHeaderCellDef>Status</th>
-            <td mat-cell *matCellDef="let element"><button mat-raised-button color="primary">Switch</button></td>
-          </ng-container>
-        </table> -->

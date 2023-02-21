@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { NotfoundComponent } from './notfound/notfound.component';
 import { UserComponent } from './user/user.component';
-import { AdminComponent } from './admin/admin.component'; 
+import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  { path:'', redirectTo:'auth', pathMatch:'full' },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(x => x.AuthModule)

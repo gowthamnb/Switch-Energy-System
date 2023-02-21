@@ -1,54 +1,53 @@
 .page {
-    color: white;
-    padding: 0 1rem;
-    background: #f1f5f9;
+  color: white;
+  padding: 0 1rem;
+  background: #f1f5f9;
 }
 
 .page__box {
-    min-height: 120px;
-    background: #1e293b;
-    margin: 0 -1rem;
-    font-size: 36px;
+  min-height: 120px;
+  background: #1e293b;
+  margin: 0 -1rem;
+  font-size: 36px;
 }
 
 .page__content {
-    min-height: calc(100vh - 178px);
-    border-radius: 10px;
-    margin-top: -3rem;
-    background: white;
-    color: black;
-    font-size: 2rem;
+  min-height: calc(100vh - 178px);
+  border-radius: 10px;
+  margin-top: -3rem;
+  background: white;
+  color: black;
+  font-size: 2rem;
 }
 
 .page-data {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-th, td {
-    padding: 15px;
-  }
+th,
+td {
+  padding: 15px;
+}
 
 .table-container {
-    display: flex;
-    width: 120%;
-    margin-top: 10px;
-    margin-left: 27%;
-    /* background-color: whitesmoke; */
-    font-size: 50%;
+  display: flex;
+  width: 120%;
+  margin-top: 10px;
+  margin-left: 27%;
+  font-size: 50%;
 }
 
 .button-container {
-    
-    padding-bottom: 16px;
-    /* background-color: aquamarine; */
-  }
 
-  .enroll-button {
-    margin-left: 20px;
-  }
+  padding-bottom: 16px;
+}
 
-  .switch {
-    background-color: yellow;
-  }
+.enroll-button {
+  margin-left: 20px;
+}
+
+.switch {
+  background-color: yellow;
+}

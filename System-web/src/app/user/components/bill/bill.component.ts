@@ -3,7 +3,6 @@ import { BillsService } from 'src/app/services/bills.service';
 import { ProviderService } from 'src/app/services/provider.service';
 import { SmartMeterService } from 'src/app/services/smart-meter.service';
 import { SmartMeter } from 'src/app/interfaces/smartMeter';
-import { Provider } from 'src/app/interfaces/provider';
 
 @Component({
   selector: 'app-bill',
@@ -19,15 +18,15 @@ export class BillComponent implements OnInit {
   ngOnInit(): void {
     this.smartMeterService.getSmartMeters(sessionStorage.getItem('username')).subscribe(res => {
       this.smartMeters = res;
-  });
+    });
 
-}
+  }
 
-getBill(smartMeterId: string | null | undefined): void {
+  getBill(smartMeterId: string | null | undefined): void {
 
-  this.billsService.chargedBills(smartMeterId).subscribe(res => {
-    alert("Bill Amount is " + res)
-  })
-}
+    this.billsService.chargedBills(smartMeterId).subscribe(res => {
+      alert("Bill Amount is " + res)
+    })
+  }
 
 }
