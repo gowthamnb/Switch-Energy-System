@@ -7,19 +7,21 @@
             <thead>
               <tr>
                 <th scope="col">#id</th>
-                <th scope="col">Provider</th>
-                <th scope="col">Reading</th>
-                <th scope="col">Amount</th>
+              <th scope="col">Provider</th>
+              <!-- <th scope="col">reading</th>
+              <th scope="col">Amount</th> -->
+              <th scope="col">Bill</th>
               </tr>
             </thead>
             <tbody>
-              <!-- <tr *ngFor="let smartMeter of smartMeters">
+              <tr *ngFor="let smartMeter of smartMeters">
                 <td scope="row">{{smartMeter.id}}</td>
-                <td>{{smartMeter.userId}}</td>
                 <td>{{smartMeter.providerName}}</td>
-                <td><button mat-raised-button mat-dialog-close class="accept" (click)="acceptRequest(smartMeter.id)">Accept</button></td>
-                <td><button mat-raised-button mat-dialog-close class="decline" (click)="declineRequest(smartMeter.id)">Decline</button></td>
-              </tr> -->
+                <!-- <td>{{smartMeter.reading}}</td>
+                <td>{{smartMeter.amount}}</td> -->
+                <td><button mat-raised-button class="bill" (click)="getBill(smartMeter.id)">Get</button></td>
+                
+              </tr> 
             </tbody>
           </table>
         </div>

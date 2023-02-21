@@ -44,7 +44,7 @@ public class SecurityConfig {
                 .requestMatchers("/auth/login","/user/signup").permitAll()
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/user/**","/provider/**","/smart-meter/**").authenticated()
+                .requestMatchers("/**").authenticated()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

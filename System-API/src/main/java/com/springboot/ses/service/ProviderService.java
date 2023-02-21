@@ -38,4 +38,8 @@ public class ProviderService {
 
         return providerRepository.getAllProviders();
     }
+
+    public int getProviderRateByName(String provider) {
+        return providerRepository.getProviderRateByName(provider);
+    }
 }

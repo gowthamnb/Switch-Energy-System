@@ -1,6 +1,7 @@
 package com.springboot.ses.repository;
 
 import com.springboot.ses.SesApplication;
+import com.springboot.ses.controller.ProviderController;
 import com.springboot.ses.dto.ReadingResponse;
 import com.springboot.ses.pojo.CalculateBillAmount;
 import com.springboot.ses.pojo.Readings;
@@ -24,10 +25,13 @@ public class CalculateBillAmountRepository {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    @Autowired
+    private ProviderController providerController;
+
     public List<ReadingResponse> calculateBillAmount() {
         UnwindOperation unwindOperation = Aggregation.unwind("generatedReadings");
         MatchOperation matchOperation = Aggregation.match(Criteria.where("isEnabled").is(true));
-        GroupOperation groupOperation = Aggregation.group("_id").sum("generatedReadings.reading").as("totalReadings");
+        GroupOperation groupOperation = Aggregation.group("smartMeterId").sum("generatedReadings.reading").as("totalReadings");
 
         Aggregation aggregation = Aggregation.newAggregation(unwindOperation, matchOperation, groupOperation);
         AggregationResults<ReadingResponse> totalReadings = mongoTemplate.aggregate(aggregation, Readings.class, ReadingResponse.class);
@@ -36,13 +40,22 @@ public class CalculateBillAmountRepository {
         return totalReadings.getMappedResults();
     }
 
-    public List<CalculateBillAmount> calculateBills(String id) {
+    public double calculateBills(String id) {
 
-        logger.info(calculateBillAmount().toString());
+        SmartMeter smartMeter = mongoTemplate.findOne(Query.query(Criteria.where("id").is(id)), SmartMeter.class);
 
-        mongoTemplate.find(Query.query(Criteria.where("userId").is(id)), SmartMeter.class);
+        double totalReadings = calculateBillAmount().stream()
+                .filter(smartMeters-> smartMeters.getId().equals(id))
+                .toList().get(0).getTotalReadings();
 
-        return  mongoTemplate.find(Query.query(Criteria.where("userId").is(id)), CalculateBillAmount.class);
+        double totalAmount = totalReadings * providerController.getProviderRateByName(smartMeter.getProviderName());
+
+//        CalculateBillAmount calculateBillAmount = new CalculateBillAmount(id);
+//        calculateBillAmount.setReading(totalReadings);
+//        calculateBillAmount.setBillAmount(totalAmount);
+//        mongoTemplate.save(calculateBillAmount);
+
+        return totalAmount;
 
     }
 }

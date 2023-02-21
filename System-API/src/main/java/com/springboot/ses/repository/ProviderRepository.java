@@ -38,4 +38,9 @@ public class ProviderRepository {
     public List<Provider> getAllProviders() {
         return mongoTemplate.findAll(Provider.class);
     }
+
+    public int getProviderRateByName(String provider) {
+        Provider providers = mongoTemplate.findOne(Query.query(Criteria.where("name").is(provider)), Provider.class);
+        return providers.getRate();
+    }
 }

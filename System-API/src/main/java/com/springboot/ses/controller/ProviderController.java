@@ -36,4 +36,8 @@ public class ProviderController {
         return providerService.updateStatus(id);
     }
 
+    @GetMapping
+    public int getProviderRateByName(String provider){
+        return providerService.getProviderRateByName(provider);
+    }
 }

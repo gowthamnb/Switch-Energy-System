@@ -13,7 +13,7 @@ public class CalculateBillAmountService {
     @Autowired
     private CalculateBillAmountRepository calculateBillAmountRepository;
 
-    public List<CalculateBillAmount> calculateBills(String id) {
+    public double calculateBills(String id) {
         return calculateBillAmountRepository.calculateBills(id);
     }
 }
