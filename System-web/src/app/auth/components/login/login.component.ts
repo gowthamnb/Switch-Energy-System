@@ -29,24 +29,23 @@ export class LoginComponent implements OnInit {
   });
 
   logIn(logInData: Object) {
-    this.userService.login(this.loginForm.value).subscribe(res => {
-      sessionStorage.setItem('token', res.token);
-      sessionStorage.setItem('username', res.username);
-      sessionStorage.setItem('role', res.role);
-      if (res.role == 'ROLE_ADMIN') {
-        this.router.navigate(['/admin/smart-meters']);
 
+    this.userService.login(this.loginForm.value).subscribe({
+      next : (res) => {
+        sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('username', res.username);
+        sessionStorage.setItem('role', res.role);
+        if (res.role == 'ROLE_ADMIN') {
+          this.router.navigate(['/admin/smart-meters']);
+        }
+        else {
+          this.router.navigate(['/user']);
+        }
+      },
+      error : (err) => {
+        alert('Invalid details!!');
       }
-      else {
-
-        this.router.navigate(['/user']);
-      }
-
-    },
-      err => {
-        alert('Invalid details!!')
-      });
-
+    })
   }
 
   logOut() {
