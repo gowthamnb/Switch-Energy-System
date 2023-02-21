@@ -2,7 +2,9 @@ package com.springboot.ses.repository;
 
 import com.springboot.ses.SesApplication;
 import com.springboot.ses.dto.ReadingResponse;
+import com.springboot.ses.pojo.CalculateBillAmount;
 import com.springboot.ses.pojo.Readings;
+import com.springboot.ses.pojo.SmartMeter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -31,5 +34,15 @@ public class CalculateBillAmountRepository {
 
         logger.info(totalReadings.getMappedResults().toString());
         return totalReadings.getMappedResults();
+    }
+
+    public List<CalculateBillAmount> calculateBills(String id) {
+
+        logger.info(calculateBillAmount().toString());
+
+        mongoTemplate.find(Query.query(Criteria.where("userId").is(id)), SmartMeter.class);
+
+        return  mongoTemplate.find(Query.query(Criteria.where("userId").is(id)), CalculateBillAmount.class);
+
     }
 }

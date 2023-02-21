@@ -33,7 +33,7 @@ export class EnrollSmartMeterDialogBoxComponent implements OnInit {
 }
 
 smartMeterForm =  new FormGroup({
-  userId: new FormControl('', Validators.required),
+  // userId: new FormControl('', Validators.required),
   providerName: new FormControl('', Validators.required),
 });
 
@@ -41,7 +41,7 @@ smartMeterForm =  new FormGroup({
 enrollSmartMeter() {
   // console.log(this.smartMeterForm)
   // this.smartMeterService.enrollSmartMeter('gowthamnb21@gmail.com', this.newSmartMeterProvider).subscribe();
-  this.smartMeterService.enrollSmartMeter(this.smartMeterForm.value.userId, this.smartMeterForm.value.providerName).subscribe();
+  this.smartMeterService.enrollSmartMeter(sessionStorage.getItem('username'), this.smartMeterForm.value.providerName).subscribe();
 }
 
   onNoClick(): void {

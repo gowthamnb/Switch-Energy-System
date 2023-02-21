@@ -35,6 +35,7 @@ public class ProviderService {
     }
 
     public List<Provider> getAllProviders() {
+
         return providerRepository.getAllProviders();
     }
 }

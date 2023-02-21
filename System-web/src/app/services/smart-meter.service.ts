@@ -8,7 +8,7 @@ import { Provider } from '../interfaces/provider';
   providedIn: 'root'
 })
 export class SmartMeterService {
-
+ 
   constructor(private http: HttpClient) { }
 
   url = 'http://localhost:9999/smart-meter';
@@ -29,7 +29,7 @@ export class SmartMeterService {
     return this.http.put<string>(this.url + '/' + smartMeterId + '/reject', null);
   }
 
-  getSmartMeters(userId: string | null): Observable<SmartMeter[]> {
+  getSmartMeters(userId: string | null): Observable<SmartMeter[]> { 
     return this.http.get<SmartMeter[]>(this.url + '/' + userId + '/display');
   }
 

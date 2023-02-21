@@ -26,9 +26,7 @@ public class SmartMeterService {
 
     @Scheduled(cron="1 * * * * *")
     public void generateReading() {
-        calculateBillAmountRepository.calculateBillAmount();
         smartMeterRepository.generateReadings();
-
     }
 
     public String enroll(String id, String provider) {
