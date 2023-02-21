@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { SmartMeter } from 'src/app/interfaces/smartMeter';
 import { SmartMeterService } from 'src/app/services/smart-meter.service';
 import { ShowSmartMeterRequestsComponent } from '../show-smart-meter-requests/show-smart-meter-requests.component';
@@ -28,6 +28,6 @@ export class SmartMeterComponent implements OnInit {
       this.ngOnInit();
     });
   }
-  }
+}
 
 

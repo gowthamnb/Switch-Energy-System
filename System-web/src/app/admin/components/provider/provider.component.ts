@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Provider } from 'src/app/interfaces/provider';
 import { ProviderService } from 'src/app/services/provider.service';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 import { EnrollProviderDialogBoxComponent } from '../enroll-provider-dialog-box/enroll-provider-dialog-box.component';
@@ -12,7 +12,7 @@ import { EnrollProviderDialogBoxComponent } from '../enroll-provider-dialog-box/
   styleUrls: ['./provider.component.css']
 })
 export class ProviderComponent implements OnInit {
-  providers: Provider[] = []; 
+  providers: Provider[] = [];
   newProvider: Provider = {
     id: '',
     name: '',
@@ -31,24 +31,24 @@ export class ProviderComponent implements OnInit {
 
   enrollProvider(): void {
     const dialogRef = this.dialog.open(EnrollProviderDialogBoxComponent, {
-      data: {name: this.newProvider.name, rate: this.newProvider.rate},
+      data: { name: this.newProvider.name, rate: this.newProvider.rate },
     });
 
     dialogRef.afterClosed().subscribe(result => {
       this.newProvider = result;
       this.ngOnInit();
     });
-    
+
   }
 
   disable(provider: Provider): void {
     this.providerService.enableDisableProvider(provider.id).subscribe()
-      provider.isEnabled = false;
+    provider.isEnabled = false;
   }
 
   enable(provider: Provider): void {
     this.providerService.enableDisableProvider(provider.id).subscribe()
-      provider.isEnabled = true;
-    };
-  }
+    provider.isEnabled = true;
+  };
+}
 

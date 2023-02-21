@@ -32,16 +32,16 @@
     padding-bottom: 10px;
 }
 
-th, td {
+th,
+td {
     padding: 15px;
-  }
+}
 
 .table-container {
     display: flex;
     width: 120%;
     margin-top: 10px;
     margin-left: 15%;
-    /* background-color: whitesmoke; */
     font-size: 50%;
 }
 

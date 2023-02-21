@@ -8,9 +8,9 @@ describe('EnrollProviderDialogBoxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EnrollProviderDialogBoxComponent ]
+      declarations: [EnrollProviderDialogBoxComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(EnrollProviderDialogBoxComponent);
     component = fixture.componentInstance;

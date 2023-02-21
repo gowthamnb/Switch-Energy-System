@@ -8,20 +8,20 @@ import { SmartMeterService } from 'src/app/services/smart-meter.service';
   styleUrls: ['./show-smart-meter-requests.component.css']
 })
 export class ShowSmartMeterRequestsComponent implements OnInit {
-  
+
   smartMeters: SmartMeter[] = [];
 
   constructor(private smartMeterService: SmartMeterService) { }
 
   ngOnInit(): void {
     this.smartMeterService.getSmartMetersRequests().subscribe(res => {
-      this.smartMeters=res
+      this.smartMeters = res
     });
   }
 
   acceptRequest(smartMeterId: String | null | undefined): void {
     this.smartMeterService.acceptRequest(smartMeterId).subscribe();
-    
+
   }
 
   declineRequest(smartMeterId: String | null | undefined) {

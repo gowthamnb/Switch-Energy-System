@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Provider } from 'src/app/interfaces/provider';
 import { ProviderService } from 'src/app/services/provider.service';
 
@@ -21,8 +21,8 @@ export class EnrollProviderDialogBoxComponent implements OnInit {
     isEnabled: ''
   };
 
-  constructor(public dialogRef: MatDialogRef<EnrollProviderDialogBoxComponent>, 
-    @Inject(MAT_DIALOG_DATA) public data: Provider, 
+  constructor(public dialogRef: MatDialogRef<EnrollProviderDialogBoxComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Provider,
     private providerService: ProviderService) { }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class EnrollProviderDialogBoxComponent implements OnInit {
     });
   }
 
-  providerForm =  new FormGroup({
+  providerForm = new FormGroup({
     name: new FormControl('', Validators.required),
     rate: new FormControl('', Validators.required),
   });
@@ -39,7 +39,7 @@ export class EnrollProviderDialogBoxComponent implements OnInit {
   enrollProvider(): void {
     this.providerService.enrollProvider(this.providerForm.value).subscribe();
   }
-  
+
   onNoClick(): void {
     this.dialogRef.close();
   }
