@@ -11,7 +11,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   url = 'http://localhost:9999/user';
-  
+
   authenticateUrl = 'http://localhost:9999/auth/login';
 
   login(loginData: Object): Observable<Login> {

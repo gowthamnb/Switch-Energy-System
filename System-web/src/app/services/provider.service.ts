@@ -21,7 +21,7 @@ export class ProviderService {
   }
 
   enableDisableProvider(providerId: String | null | undefined): Observable<object> {
-    return this.http.put<String>(this.url + '/update-status/' + providerId, null); 
+    return this.http.put<String>(this.url + '/update-status/' + providerId, null);
   }
 
 }

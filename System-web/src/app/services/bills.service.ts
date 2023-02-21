@@ -12,7 +12,7 @@ export class BillsService {
   url = 'http://localhost:9999/bills'
 
   chargedBills(smartMeterId: string | null | undefined): Observable<Object> {
-    
-   return this.http.get(`${this.url}/calculate/${smartMeterId}`);
+
+    return this.http.get(`${this.url}/calculate/${smartMeterId}`);
   }
 }

@@ -8,12 +8,12 @@ import { Provider } from '../interfaces/provider';
   providedIn: 'root'
 })
 export class SmartMeterService {
- 
+
   constructor(private http: HttpClient) { }
 
   url = 'http://localhost:9999/smart-meter';
 
-  getAllSmartMeters(): Observable<SmartMeter[]>  {
+  getAllSmartMeters(): Observable<SmartMeter[]> {
     return this.http.get<SmartMeter[]>(this.url);
   }
 
@@ -29,11 +29,11 @@ export class SmartMeterService {
     return this.http.put<string>(this.url + '/' + smartMeterId + '/reject', null);
   }
 
-  getSmartMeters(userId: string | null): Observable<SmartMeter[]> { 
+  getSmartMeters(userId: string | null): Observable<SmartMeter[]> {
     return this.http.get<SmartMeter[]>(this.url + '/' + userId + '/display');
   }
 
-  enrollSmartMeter(userId: String | null | undefined, newSmartMeterProvider: String | null | undefined): Observable<SmartMeter>{
+  enrollSmartMeter(userId: String | null | undefined, newSmartMeterProvider: String | null | undefined): Observable<SmartMeter> {
     return this.http.post<SmartMeter>(this.url + '/' + userId + '/enroll', newSmartMeterProvider);
   }
 
