@@ -1,0 +1,30 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Bills</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data position-absolute text-center">
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#id</th>
+              <th scope="col">Provider</th>
+              <!-- <th scope="col">reading</th>
+              <th scope="col">Amount</th> -->
+              <th scope="col">Bill</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let smartMeter of smartMeters">
+              <td scope="row">{{smartMeter.id}}</td>
+              <td>{{smartMeter.providerName}}</td>
+              <!-- <td>{{smartMeter.reading}}</td>
+                <td>{{smartMeter.amount}}</td> -->
+              <td><button mat-raised-button class="bill" (click)="getBill(smartMeter.id)">Get</button></td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

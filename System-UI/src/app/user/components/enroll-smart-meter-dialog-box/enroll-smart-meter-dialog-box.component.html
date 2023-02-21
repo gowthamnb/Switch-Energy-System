@@ -1,0 +1,17 @@
+<div mat-dialog-content>
+  <form [formGroup]="smartMeterForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Select Provider</mat-label>
+      <mat-select [(ngModel)]="newSmartMeterProvider" name="provider" formControlName="providerName">
+        <mat-option *ngFor="let provider of providers" [value]="provider.name">
+          {{provider.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No</button>
+  <button mat-button [mat-dialog-close]="newSmartMeterProvider" (click)="enrollSmartMeter()" cdkFocusInitial>Ok</button>
+</div>

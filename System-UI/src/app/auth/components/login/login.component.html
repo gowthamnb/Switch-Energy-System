@@ -1,0 +1,45 @@
+<div class="main">
+    <div class="container">
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="logIn(loginForm.value)" autocomplete="off">
+            <div class="login-table">
+                <table>
+                    <p>
+                        <tr>
+                            <mat-form-field appearance="fill">
+                                <mat-label>username</mat-label>
+                                <input matInput type="text" formControlName="username">
+                                <mat-error>email is required</mat-error>
+                            </mat-form-field>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <mat-form-field appearance="fill">
+                                <mat-label>password</mat-label>
+                                <input matInput type="text" formControlName="password">
+                            </mat-form-field>
+                            <div class="forgot-password">
+                                <a href="" id="forgot-password">Forgot password?</a>
+                            </div>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <div class="button">
+                                <button mat-raised-button class="submit">Login</button>
+                            </div>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <div class="signup-route">
+                                <p id="para">Not have an Account?&nbsp;<a href="auth/signup">Signup</a></p>
+                            </div>
+                        </tr>
+                    </p>
+                </table>
+
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Smart Meter</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data position-absolute text-center">
+      <div class="button-container">
+        <button mat-raised-button (click)="enrollSmartMeter()" class="enroll-button" color="primary">
+          enroll
+        </button>
+      </div>
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#id</th>
+              <th scope="col">Provider</th>
+              <th scope="col">Status</th>
+              <th scope="col">Switch Provider</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let smartMeter of smartMeters">
+              <td scope="row">{{smartMeter.id}}</td>
+              <td>{{smartMeter.providerName}}</td>
+              <td>{{smartMeter.status}}</td>
+              <td><button mat-raised-button class="switch" (click)="switchProvider(smartMeter.id)">Switch</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
