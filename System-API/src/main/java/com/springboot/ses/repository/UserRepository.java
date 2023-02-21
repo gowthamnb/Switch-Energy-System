@@ -1,6 +1,5 @@
 package com.springboot.ses.repository;
 
-import com.springboot.ses.pojo.SmartMeter;
 import com.springboot.ses.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -9,11 +8,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Repository;
-
-import java.util.Optional;
-
-import java.util.List;
 
 @Repository
 public class UserRepository {
@@ -26,11 +20,13 @@ public class UserRepository {
 
     public String getRole(String username) {
         User user = mongoTemplate.findOne(Query.query(Criteria.where("username").is(username)), User.class);
+
         return user.getRole();
     }
 
     public User findById(String username) {
         User user = mongoTemplate.findOne(Query.query(Criteria.where("username").is(username)), User.class);
+
         return user;
     }
 

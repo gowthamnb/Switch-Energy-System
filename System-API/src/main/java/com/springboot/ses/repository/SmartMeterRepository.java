@@ -49,6 +49,7 @@ public class SmartMeterRepository {
         update.set("status", "Approved");
 
         mongoTemplate.findAndModify(query1, update, SmartMeter.class);
+
         return "Smart Meter Approved!!";
     }
 
@@ -59,6 +60,7 @@ public class SmartMeterRepository {
         update.set("status", "Rejected");
 
         mongoTemplate.findAndModify(query1, update, SmartMeter.class);
+
         return "Smart Meter Rejected!!";
     }
 
@@ -71,11 +73,13 @@ public class SmartMeterRepository {
         }
 
         mongoTemplate.findAndModify(query1, update, SmartMeter.class);
+
         return "Provider Switched!!";
     }
 
     public void generateReadings() {
         Reading reading = new Reading(5);
+
         mongoTemplate.updateMulti(new Query().addCriteria(Criteria.where("isEnabled").is(true)),
                 new Update().push("generatedReadings", reading), Readings.class);
     }
@@ -83,6 +87,7 @@ public class SmartMeterRepository {
     public String generateBill(String id) {
         Readings readings = mongoTemplate.findOne(Query.query(Criteria.where("userId").is(id)), Readings.class);
         readings.getGeneratedReadings().size();
+
         return "Bill Generated!!";
     }
 }

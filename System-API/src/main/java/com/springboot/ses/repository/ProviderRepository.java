@@ -18,6 +18,7 @@ public class ProviderRepository {
 
     public String enrollProvider(Provider newProvider) {
         mongoTemplate.save(newProvider);
+
         return "Provider enrolled!!";
     }
 
@@ -41,6 +42,7 @@ public class ProviderRepository {
 
     public int getProviderRateByName(String provider) {
         Provider providers = mongoTemplate.findOne(Query.query(Criteria.where("name").is(provider)), Provider.class);
+
         return providers.getRate();
     }
 }

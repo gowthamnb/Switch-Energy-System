@@ -36,7 +36,6 @@ public class CalculateBillAmountRepository {
         Aggregation aggregation = Aggregation.newAggregation(unwindOperation, matchOperation, groupOperation);
         AggregationResults<ReadingResponse> totalReadings = mongoTemplate.aggregate(aggregation, Readings.class, ReadingResponse.class);
 
-        logger.info(totalReadings.getMappedResults().toString());
         return totalReadings.getMappedResults();
     }
 
@@ -50,12 +49,11 @@ public class CalculateBillAmountRepository {
 
         double totalAmount = totalReadings * providerController.getProviderRateByName(smartMeter.getProviderName());
 
-//        CalculateBillAmount calculateBillAmount = new CalculateBillAmount(id);
-//        calculateBillAmount.setReading(totalReadings);
-//        calculateBillAmount.setBillAmount(totalAmount);
-//        mongoTemplate.save(calculateBillAmount);
+        CalculateBillAmount calculateBillAmount = new CalculateBillAmount(id);
+        calculateBillAmount.setReading(totalReadings);
+        calculateBillAmount.setBillAmount(totalAmount);
+        mongoTemplate.save(calculateBillAmount);
 
         return totalAmount;
-
     }
 }

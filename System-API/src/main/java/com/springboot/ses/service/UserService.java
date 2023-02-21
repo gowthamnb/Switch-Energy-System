@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
@@ -26,14 +24,15 @@ public class UserService implements UserDetailsService {
     public String signUp(User newUser) {
         newUser.setUsername(newUser.getEmail());
         newUser.setRoles(role);
+        
         return userRepository.signUp(newUser);
     }
 
    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> signUp = Optional.ofNullable(userRepository.findById(username));
+
         return signUp.map(SignUpUserDetails::new)
                 .orElseThrow(()->new UsernameNotFoundException(username+" not found!!"));
     }
-
 }

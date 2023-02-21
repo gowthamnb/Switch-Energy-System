@@ -35,6 +35,7 @@ public class SmartMeterService {
         smartMeter.setUserId(id);
         smartMeter.setProviderName(provider);
         smartMeter.setStatus("Pending");
+
         return smartMeterRepository.enroll(smartMeter);
     }
 
@@ -45,6 +46,7 @@ public class SmartMeterService {
     }
 
     public List<SmartMeter> getSmartMeters(String id) {
+
         return smartMeterRepository.getSmartMeters(id);
     }
 
