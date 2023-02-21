@@ -15,22 +15,18 @@ export class BillComponent implements OnInit {
   constructor(private billsService: BillsService, private smartMeterService: SmartMeterService, private providerService: ProviderService) { }
 
   smartMeters: SmartMeter[] = [];
-  // providers: Provider[] = []; 
 
   ngOnInit(): void {
     this.smartMeterService.getSmartMeters(sessionStorage.getItem('username')).subscribe(res => {
       this.smartMeters = res;
   });
 
-  // this.providerService.getAllProviders().subscribe(res => {
-  //   this.providers = res;
-  // });
 }
 
 getBill(smartMeterId: string | null | undefined): void {
 
   this.billsService.chargedBills(smartMeterId).subscribe(res => {
-    alert(res)
+    alert("Bill Amount is " + res)
   })
 }
 
