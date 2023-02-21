@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private router: Router, private userService: UserService, private formbuilder: FormBuilder) { 
+  constructor(private router: Router, private userService: UserService, private formbuilder: FormBuilder) {
 
   }
 
@@ -35,13 +35,13 @@ export class SignupComponent implements OnInit {
 
   mustMatch(password: any, confirmPassword: any) {
     return (formGroup: FormGroup) => {
-      const passwordControl=formGroup.controls[password];
-      const confirmPasswordControl=formGroup.controls[confirmPassword];
-      if(confirmPassword.errors && !confirmPassword.errors['mustMatch']) {
+      const passwordControl = formGroup.controls[password];
+      const confirmPasswordControl = formGroup.controls[confirmPassword];
+      if (confirmPassword.errors && !confirmPassword.errors['mustMatch']) {
         return;
       }
 
-      if(passwordControl.value!==confirmPasswordControl.value) {
+      if (passwordControl.value !== confirmPasswordControl.value) {
         confirmPasswordControl.setErrors({ mustMatch: true });
       }
       else {
@@ -94,7 +94,7 @@ export class SignupComponent implements OnInit {
   }
 
   get f() {
-     return this.signupForm.controls;
+    return this.signupForm.controls;
   }
 }
 

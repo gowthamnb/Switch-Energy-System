@@ -3,7 +3,6 @@ import { Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-import { SmartMeterService } from '../../../services/smart-meter.service';
 import { Login } from 'src/app/interfaces/login';
 
 @Component({
@@ -34,19 +33,19 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('token', res.token);
       sessionStorage.setItem('username', res.username);
       sessionStorage.setItem('role', res.role);
-      if(res.role == 'ROLE_ADMIN') {
+      if (res.role == 'ROLE_ADMIN') {
         this.router.navigate(['/admin/smart-meters']);
-      
+
       }
       else {
-        
+
         this.router.navigate(['/user']);
       }
 
     },
-    err =>{
-      alert('Invalid details!!')
-    });
+      err => {
+        alert('Invalid details!!')
+      });
 
   }
 
