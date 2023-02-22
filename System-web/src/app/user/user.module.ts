@@ -59,7 +59,7 @@ import { UserRoutingModule } from './user-routing.module';
     MatInputModule,
     FormsModule,
     MatSelectModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
   ]
 })
 export class UserModule { }
