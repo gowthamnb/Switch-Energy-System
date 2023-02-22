@@ -1,0 +1,12 @@
+.main {
+    display: flex;
+    position: relative;
+   background-color: whitesmoke;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+}
+
+p {
+    font-size: xx-large;
+}
