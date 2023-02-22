@@ -45,7 +45,8 @@ export class LoginComponent implements OnInit {
       },
       error : (err) => {
         Swal.fire({
-          title: 'Invalid login credentials!!',
+          icon: 'warning',
+          title: 'Invalid login credentials',
           width: 400,
           padding: '3em',
           color: 'red',
@@ -57,7 +58,6 @@ export class LoginComponent implements OnInit {
             no-repeat
           `
         })
-        // alert('Invalid details!!');
       }
     })
   }

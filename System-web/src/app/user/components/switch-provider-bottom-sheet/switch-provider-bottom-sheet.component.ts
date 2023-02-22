@@ -5,6 +5,7 @@ import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 import { Provider } from 'src/app/interfaces/provider';
 import { ProviderService } from 'src/app/services/provider.service';
 import { SmartMeterService } from 'src/app/services/smart-meter.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-switch-provider-bottom-sheet',
@@ -38,6 +39,13 @@ export class SwitchProviderBottomSheetComponent implements OnInit {
 
   switchProvider(): void {
     this.smartMeterService.switchProvider(this.smartMeterId, this.selectedSmartMeterProvider).subscribe();
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Provider Switched',
+      showConfirmButton: false,
+      timer: 1000
+    })
     this._bottomSheetRef.dismiss();
   }
 
