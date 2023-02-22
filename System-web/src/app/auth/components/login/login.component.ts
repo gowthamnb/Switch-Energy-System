@@ -4,6 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { Login } from 'src/app/interfaces/login';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -43,7 +44,20 @@ export class LoginComponent implements OnInit {
         }
       },
       error : (err) => {
-        alert('Invalid details!!');
+        Swal.fire({
+          title: 'Invalid login credentials!!',
+          width: 400,
+          padding: '3em',
+          color: 'red',
+          background: '#fff url()',
+          backdrop: `
+            rgba(0,0,0,0.3)
+           
+            left top
+            no-repeat
+          `
+        })
+        // alert('Invalid details!!');
       }
     })
   }
