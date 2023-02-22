@@ -3,6 +3,7 @@ package com.springboot.ses.controller;
 import com.springboot.ses.SesApplication;
 import com.springboot.ses.pojo.SmartMeter;
 import com.springboot.ses.service.SmartMeterService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,6 @@ public class SmartMeterController {
 
     @GetMapping("/{id}/display")
     public List<SmartMeter> getSmartMeters(@PathVariable("id") String id) {
-        logger.info(id);
         return smartMeterService.getSmartMeters(id);
     }
 
@@ -51,7 +51,6 @@ public class SmartMeterController {
     public String rejectSmartMeter(@PathVariable("id") String id) {
         return smartMeterService.rejectSmartMeter(id);
     }
-
 
     @PutMapping("/{id}/switch-provider")
     public String switchSmartMeter(@PathVariable("id") String id, @RequestBody String provider) {

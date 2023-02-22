@@ -1,7 +1,7 @@
 package com.springboot.ses.config;
 
-
 import com.springboot.ses.pojo.User;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,7 +15,6 @@ public class SignUpUserDetails implements UserDetails {
     private String username;
     private String password;
     private List<GrantedAuthority> authorities;
-
 
     public SignUpUserDetails(User signUp) {
         this.username = signUp.getUsername();

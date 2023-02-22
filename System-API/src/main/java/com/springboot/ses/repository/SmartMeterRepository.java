@@ -4,6 +4,7 @@ import com.springboot.ses.pojo.Reading;
 import com.springboot.ses.pojo.Readings;
 import com.springboot.ses.pojo.SmartMeter;
 import com.springboot.ses.service.SmartMeterService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;

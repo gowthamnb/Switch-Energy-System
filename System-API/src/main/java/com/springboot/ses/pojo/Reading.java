@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class Reading {
+
     private double reading;
     private LocalDateTime dateAndTime;
 
